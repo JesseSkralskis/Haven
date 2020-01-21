@@ -1,0 +1,24 @@
+.header{
+
+background: $darkest-blue;
+padding: $s-size 0;
+
+}
+
+
+
+.header__title{
+    color: whitesmoke;
+    text-decoration: none;
+    h1{
+        margin: 0;
+        
+    }
+}
+
+.header__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $s-size 0;
+}

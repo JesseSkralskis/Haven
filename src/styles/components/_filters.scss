@@ -1,0 +1,23 @@
+.filters {
+  display: flex;
+  justify-content: space-around;
+
+  padding: $xl-size $m-size;
+}
+
+.filters__input {
+  border: 2px solid black;
+  height: 50px;
+  padding: $s-size;
+  font-size: $font-size-large;
+  font-weight: 300;
+}
+
+.filters__select {
+  @extend .filters__input;
+  background: white;
+}
+
+.filters__datebox{
+    border: 1px solid black;
+}

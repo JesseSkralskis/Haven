@@ -1,0 +1,29 @@
+.buttons{
+    background: $blue-button;
+    padding: $s-size;
+    font-size: $font-size-large;
+    //The font-weight property sets how thick or thin characters in text should be displayed.
+    //100-900 spectrum
+    font-weight: 500;
+    border: none;
+    color: white;
+    //so the default inline margin for links wont be in place
+    //so that the vertical margin and padding will be in play
+    //button will always be on it own line
+    display: inline-block;
+    //get rid of line
+    text-decoration: none;
+    line-height: 1;
+    
+}
+
+//how to make a modifier
+
+.buttons--link{
+   background: none; 
+}
+
+.buttons--secondary{
+    background:$lightest-blue;
+}
+
