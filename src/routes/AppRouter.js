@@ -14,6 +14,8 @@ import CreateBlog from '../components/CreateBlog'
 import createHistory from 'history/createBrowserHistory';
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
+import ExpandedBlog from '../components/ExpandedBlog'
+
 
 export const history = createHistory();
 //instaed of using browser route3r with history built in 
@@ -31,6 +33,11 @@ const AppRouter = () => (
         <PublicRoute exact={true} path="/" component={LoginPage} />
         <PrivateRoute path="/dashboard" component={DashBoard} />
         <Route path="/create" component={CreateBlog} />
+        <Route
+          path="/expandedBlog/:id"
+          render={(props) => <ExpandedBlog {...props} />}
+        />
+        
        
         
         <Route component={NotFoundPage} />

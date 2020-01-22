@@ -1,5 +1,6 @@
 import React from "react";
 import Filters from './Filters';
+import BlogList from './BlogList';
 
 
 
@@ -8,7 +9,8 @@ import Filters from './Filters';
 
 const DashBoard = () => (
   <div>
-   <Filters/>
+    <Filters />
+    <BlogList/>
   </div>
 );
 

@@ -7,7 +7,7 @@ import {startLogout} from '../actions/auth'
 
 
 
-const Header = ({ startLogout }) => (
+const Header = ({ startLogout, isAuthenticated }) => (
   //navlink allows gives us props that help us style easily the
   //nav we are on using activeclassname and the styling is-active
   <header className="header">
@@ -17,22 +17,39 @@ const Header = ({ startLogout }) => (
     {/* <NavLink activeClassName="is-active" to="/create">
       create
     </NavLink> */}
-    <div className="content-container">
-      
-      <div className="header__content">
-        
-        <button className=" buttons buttons--secondary" onClick={startLogout}>Logout</button>
-        <Link className="header__title" to="/dashboard">
-          {" "}
-          <h2 >Jesse's Blog</h2>{" "}
-        </Link>
-        <Link to="/create">
-          <button className="buttons buttons--secondary">New Post</button>
-        </Link>
+    {window.location.href.indexOf("create") > -1 ? (
+      <div className="content-container">
+        <div className="header__content">
+          <button className=" buttons buttons--secondary" onClick={startLogout}>
+            Logout
+          </button>
+          <Link className="header__title" to="/dashboard">
+            {" "}
+            <h2>Jesse's Blog</h2>{" "}
+          </Link>
+        </div>
       </div>
-    </div>
+    ) : (
+      <div className="content-container">
+        <div className="header__content">
+          <button className=" buttons buttons--secondary" onClick={startLogout}>
+            Logout
+          </button>
+          <Link className="header__title" to="/dashboard">
+            {" "}
+            <h2>Jesse's Blog</h2>{" "}
+          </Link>
+
+          <Link to="/create">
+            <button className="buttons buttons--secondary">New Post</button>
+          </Link>
+        </div>
+      </div>
+    )}
   </header>
 );
+
+
 
 const mapDipatchToProps = (dispatch) => ({
   startLogout: () => dispatch(startLogout())
