@@ -1,58 +1,28 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
-import { connect } from 'react-redux'
-import {startLogout} from '../actions/auth'
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { startLogout } from "../actions/auth";
 
-
-
-
-
-const Header = ({ startLogout, isAuthenticated }) => (
+const Header = ({ startLogout }) => (
   //navlink allows gives us props that help us style easily the
   //nav we are on using activeclassname and the styling is-active
   <header className="header">
-    {/* <NavLink exact={true} activeClassName="is-active" to="/">
-      Login
-    </NavLink> */}
-    {/* <NavLink activeClassName="is-active" to="/create">
-      create
-    </NavLink> */}
-    {window.location.href.indexOf("create") > -1 ? (
-      <div className="content-container">
-        <div className="header__content">
-          <button className=" buttons buttons--secondary" onClick={startLogout}>
-            Logout
-          </button>
-          <Link className="header__title" to="/dashboard">
-            {" "}
-            <h2>Jesse's Blog</h2>{" "}
-          </Link>
-        </div>
+    <div className="header__content">
+      <Link className="header__link" to="/dashboard">
+        {" "}
+        <h1 id="header__h1">Pivot</h1>
+      </Link>
+      <div className="header__buttonContainer">
+        <button className="buttons buttons--logout" onClick={startLogout}>
+          Logout
+        </button>
       </div>
-    ) : (
-      <div className="content-container">
-        <div className="header__content">
-          <button className=" buttons buttons--secondary" onClick={startLogout}>
-            Logout
-          </button>
-          <Link className="header__title" to="/dashboard">
-            {" "}
-            <h2>Jesse's Blog</h2>{" "}
-          </Link>
-
-          <Link to="/create">
-            <button className="buttons buttons--secondary">New Post</button>
-          </Link>
-        </div>
-      </div>
-    )}
+    </div>
   </header>
 );
 
-
-
-const mapDipatchToProps = (dispatch) => ({
+const mapDipatchToProps = dispatch => ({
   startLogout: () => dispatch(startLogout())
-})
+});
 
-export default connect(undefined,mapDipatchToProps)(Header)
+export default connect(undefined, mapDipatchToProps)(Header);

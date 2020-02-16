@@ -1,0 +1,17 @@
+.bloglist__container {
+  margin: 8.15rem 0 0 47rem;
+}
+
+.bloglist__container--secondary {
+  position: absolute;
+
+  right: 10rem;
+  top: 23.5rem;
+}
+
+.bloglist__post {
+  position: absolute;
+  left: 13rem;
+  top: 23.5rem;
+  border: 1px solid $darkest-blue;
+}

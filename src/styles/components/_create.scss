@@ -1,0 +1,15 @@
+.create__container {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.create__header {
+  flex-shrink: none;
+}
+
+.create__remaining {
+  height: 100%;
+  display: flex;
+}

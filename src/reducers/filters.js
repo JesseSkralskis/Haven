@@ -2,7 +2,7 @@ import moment from "moment";
 
 const filtersDefaultState = {
   text: "",
-  sortBy: "title",
+  sortBy: "recent",
   startDate: moment().startOf("month"),
   endDate: moment().endOf("month")
 };
@@ -15,17 +15,19 @@ export default (state = filtersDefaultState, action) => {
         text: action.text
       };
 
-    case "SORT_BY_DATE":
+    case "SORT_BY_RECENT":
       return {
         ...state,
-        sortBy: "date"
+        sortBy: "recent"
       };
 
-    case "SORT_BY_TITLE":
+    case "SORT_BY_OLDEST":
       return {
         ...state,
-        sortBy: "title"
+        sortBy: "oldest"
       };
+
+      
 
       case "SET_START_DATE":
           return {

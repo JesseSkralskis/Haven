@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "react-dates/initialize";
 import { connect } from "react-redux";
-import { setTextFilter, sortByDate, sortByTitle,setStartDate, setEndDate} from "../actions/filters";
+import { setTextFilter, sortByOldest, sortByRecent,setStartDate, setEndDate} from "../actions/filters";
 import { DateRangePicker } from 'react-dates';
-const Filters = ({ setTextFilter, sortByDate, sortByTitle, filters, setStartDate,setEndDate }) => {
+const Filters = ({ setTextFilter, sortByRecent, sortByOldest, filters, setStartDate,setEndDate }) => {
   
   const [calenderFocused, setFocus] = useState(  null );
 
@@ -19,12 +19,12 @@ const Filters = ({ setTextFilter, sortByDate, sortByTitle, filters, setStartDate
   };
   
   const handleSelectChange = e => {
-    console.log(filters);
    
-    if (e.target.value === 'date') {
-      sortByDate();
-    } else if (e.target.value === 'title') {
-      sortByTitle();
+   
+    if (e.target.value === 'recent') {
+      sortByRecent();
+    } else if (e.target.value === 'oldest') {
+      sortByOldest();
     }
    
   };
@@ -36,23 +36,26 @@ const Filters = ({ setTextFilter, sortByDate, sortByTitle, filters, setStartDate
   
 
   return (
-    // console.log(calenderFocused)
-    <div className="bar">
-      <div className="filters content-container">
-        <select
+    
+      <div className="filters__content-container">
+        <h2>Search Features</h2>
+      <select
+        
           className="filters__select"
           value={filters.sortBy}
           onChange={handleSelectChange}
         >
-          <option value="title">By Title</option>
-          <option value="date">By date</option>
-        </select>
+          <option value="recent">Most recent blog </option>
+          <option value="oldest">Oldest Blog first   </option>
+      </select>
+      
+     
 
         <input
           className="filters__input"
           onChange={handleTextChange}
           type="text"
-          placeholder="Search-Blog"
+          placeholder="Search for a blog with a key word"
         ></input>
 
         <div className="filters__datebox">
@@ -70,7 +73,7 @@ const Filters = ({ setTextFilter, sortByDate, sortByTitle, filters, setStartDate
           />
         </div>
       </div>
-    </div>
+   
   );
 };
 
@@ -82,8 +85,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   setTextFilter: value => dispatch(setTextFilter(value)),
-  sortByDate: () => dispatch(sortByDate()),
-  sortByTitle: () => dispatch(sortByTitle()),
+  sortByRecent: () => dispatch(sortByRecent()),
+  sortByOldest: () => dispatch(sortByOldest()),
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate))
   

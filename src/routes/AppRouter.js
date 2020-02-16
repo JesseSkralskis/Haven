@@ -5,7 +5,7 @@ import "../styles/styles.scss"
 
 
 import DashBoard from '../components/DashBoard'
-
+import EditEntry from '../components/EditEntry'
 
 import NotFoundPage from '../components/NotFoundPage.js';
 import LoginPage from '../components/LoginPage';
@@ -26,20 +26,19 @@ const AppRouter = () => (
   <Router history={history}>
     {/* if more than on route must wrap with a div */}
     <div>
-    
       {/* switch allows us to say if a route has no path match to print the
       component */}
       <Switch>
         <PublicRoute exact={true} path="/" component={LoginPage} />
         <PrivateRoute path="/dashboard" component={DashBoard} />
+       
         <Route path="/create" component={CreateBlog} />
         <Route
           path="/expandedBlog/:id"
-          render={(props) => <ExpandedBlog {...props} />}
+          render={props => <ExpandedBlog {...props} />}
         />
-        
-       
-        
+        <Route path="/edit/:id" component={EditEntry} />
+
         <Route component={NotFoundPage} />
       </Switch>
     </div>

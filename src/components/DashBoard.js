@@ -1,16 +1,20 @@
 import React from "react";
-import Filters from './Filters';
-import BlogList from './BlogList';
-
-
+import Filters from "./Filters";
+import BlogList from "./BlogList";
+import Header from "./Header";
 
 //need to import the named export from redux-react to be able to get the store
 //this is the parent of expense list
 
 const DashBoard = () => (
-  <div>
-    <Filters />
-    <BlogList/>
+  <div className="dashboard__container">
+    <div className="dashboard__exsisting-content">
+      <Header />
+    </div>
+    <div className="dashboard__remaining-space">
+    
+      <BlogList />
+    </div>
   </div>
 );
 

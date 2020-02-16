@@ -1,24 +1,29 @@
-.header{
-
-background: $darkest-blue;
-padding: $s-size 0;
-
+.header {
+  margin: 0;
+  background: $darkest-blue;
 }
 
-
-
-.header__title{
-    color: whitesmoke;
-    text-decoration: none;
-    h1{
-        margin: 0;
-        
-    }
+.header__content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.header__content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: $s-size 0;
+.header__link {
+  text-decoration: none;
+  h1 {
+    letter-spacing: 1rem;
+    font-size: 325%;
+    margin-left: 58.5rem;
+    color: white;
+  }
+}
+
+.header__buttonContainer {
+  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
 }

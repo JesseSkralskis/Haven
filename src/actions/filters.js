@@ -4,16 +4,20 @@ export const setTextFilter = (text) => ({
 });
 
 
-export const sortByTitle = () => ({
-    type: "SORT_BY_TITLE"
+export const sortByOldest = () => ({
+    type: "SORT_BY_OLDEST"
    
 
 });
 
-export const sortByDate = () => ({
-    type: "SORT_BY_DATE",
+export const sortByRecent = () => ({
+    type: "SORT_BY_RECENT"
    
 });
+
+// export const sortByKeyword = () => ({
+//     type: "SORT_BY_KEYWORD_BLOG"
+// });
 
 export const setStartDate = (startDate) => ({
     type: "SET_START_DATE",

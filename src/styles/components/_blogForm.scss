@@ -1,0 +1,67 @@
+.bf__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("/images/photography-of-road-at-nighttime-705425.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.bf__formContainer {
+  width: 70rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: $xl-size;
+}
+
+.bf__input {
+  text-align: center;
+  width: 25rem;
+  font-size: large;
+
+  height: 4rem;
+  margin: $l-size 0;
+  border: none;
+  overflow: auto;
+  outline: none;
+}
+
+.bf__textArea textarea {
+  width: 100rem;
+  height: 50rem;
+  font-size: x-large;
+  padding: 4rem;
+  text-align: left;
+  line-height: 1.5;
+  border: none;
+  overflow: auto;
+  outline: none;
+  margin-bottom: 4rem;
+  background: rgba(255, 255, 255, 0);
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.bf__textArea ::placeholder {
+  color: white;
+
+  text-align: center;
+  
+}
+
+.bf__above {
+  width: 100rem;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.bf__buttonPost {
+  width: 18rem;
+  margin-bottom: 2rem;
+}

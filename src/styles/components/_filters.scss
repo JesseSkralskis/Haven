@@ -1,23 +1,42 @@
-.filters {
-  display: flex;
-  justify-content: space-around;
 
-  padding: $xl-size $m-size;
+
+.filters__content-container {
+  min-height: 10rem;
+  max-width: 30rem;
+  // align-items: center;
+  background:transparentize($lightest-purp, 0.4);
+  padding: 3rem;
+  border:$darkest-blue 1px solid;
+  display: flex;
+  flex-direction: column;
+  margin: rem 0;
+  & :nth-child(3) {
+    margin: 2rem 0;
+   
+  }
+  h2{
+    margin: 0;
+    text-align: center;
+    padding-bottom: 2rem;
+    color:white;
+  }
 }
 
 .filters__input {
-  border: 2px solid black;
-  height: 50px;
+  height: 25px;
   padding: $s-size;
-  font-size: $font-size-large;
-  font-weight: 300;
+  font-size: 75%;
+  font-weight: 700;
+  background: #e9d3eb;
+  color:$darkest-blue;
 }
 
 .filters__select {
-  @extend .filters__input;
-  background: white;
+  height: 25px;
+  background: #e9d3eb;
+  color: $darkest-blue;
+  font-weight: 700;
+  font-size: 75%;
 }
 
-.filters__datebox{
-    border: 1px solid black;
-}
+

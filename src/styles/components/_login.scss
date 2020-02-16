@@ -10,12 +10,12 @@
 
   &__box {
     display: flex;
+    align-items: center;
     flex-direction: column;
 
     border: 2px solid black;
     text-align: center;
-    background: transparentize($color:$darker-purp, $amount: 0.7);
-
+    background: transparentize($color: $darker-purp, $amount: 0.7);
 
     padding: $l-size $xl-size;
     margin-bottom: 10rem;
@@ -24,26 +24,22 @@
   &__title {
     color: white;
     font-size: 400%;
-  
+    letter-spacing: 1rem;
+
     margin: 0;
-    
   }
 
-  &__sub{
-      margin-bottom: 4rem;
-      color: black;
-       color: $darkest-blue;
-      font-weight: bold;
-      
-
+  &__sub {
+    margin-bottom: 4rem;
+    color: black;
+    color: $darkest-blue;
+    font-weight: bold;
   }
-  &__name{
-      color:$lightest-blue;
-      display: block;
-      font-size: 150%;
-     
-      
-   
+  &__name {
+    color: $lightest-blue;
+    display: block;
+    font-size: 150%;
+
     //    margin: $s-size;
   }
 }

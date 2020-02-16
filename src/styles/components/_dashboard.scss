@@ -1,0 +1,18 @@
+.dashboard__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+dashboard__exsisting-content {
+  flex-shrink: none;
+}
+
+.dashboard__remaining-space {
+  height: 100%;
+  width: 100%;
+  background-image: url("/images/body-of-water-across-sunset-1076429.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 -35rem;
+  overflow-y: scroll;
+}
