@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import { SingleDatePicker } from "react-dates";
+
 import moment from "moment";
 import { connect } from "react-redux";
 import { addBlogEntry, startAddBlogEntry } from "../actions/blog";
@@ -83,21 +85,22 @@ export function BlogForm(props) {
             placeholder="Blog Title"
             type="text"
           />
-
-          <SingleDatePicker
-            date={createdAt}
-            //similr to other event handlers but difference is
-            //this one is called by our third party library
-            onDateChange={handleDateChange}
-            focused={calenderFocused}
-            onFocusChange={onFocusChange}
-            //custumization
-            //docu https://github.com/airbnb/react-dates
-            numberOfMonths={1}
-            isOutsideRange={() => {
-              return false;
-            }}
-          />
+          <div className="single">
+            <SingleDatePicker
+              date={createdAt}
+              //similr to other event handlers but difference is
+              //this one is called by our third party library
+              onDateChange={handleDateChange}
+              focused={calenderFocused}
+              onFocusChange={onFocusChange}
+              //custumization
+              //docu https://github.com/airbnb/react-dates
+              numberOfMonths={1}
+              isOutsideRange={() => {
+                return false;
+              }}
+            />
+          </div>
         </div>
         <div className="bf__textArea">
           <textarea

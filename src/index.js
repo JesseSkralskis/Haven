@@ -4,7 +4,6 @@ import "./styles/styles.scss";
 import "./index.css";
 import App from "./App.js";
 import * as serviceWorker from "./serviceWorker";
-import LoadingPage from "./components/LoadingPage";
 import configStore from "../src/store/configStore";
 import { startSetBlog } from "./actions/blog";
 import { firebase } from "./firebase/firebase";
@@ -15,9 +14,10 @@ import { history } from "./routes/AppRouter";
 import { login, logout } from "./actions/auth";
 import moment from "moment";
 import uuid from "uuid";
+
 const store = configStore();
 
-const state = store.getState();
+
 
 export const testBlogs = [
   {
@@ -37,7 +37,7 @@ export const testBlogs = [
 
 const jsx = (
   // by using this now all applications wwill have access to the store
-  <Provider store={store}>
+  <Provider  store={store}>
     <App />
   </Provider>
 );
@@ -50,7 +50,6 @@ const renderApp = () => {
     hasRendered = true;
   }
 };
-
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

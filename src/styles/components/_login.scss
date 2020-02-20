@@ -1,45 +1,52 @@
 .box-layout {
   display: flex;
-  justify-content: center;
   align-items: center;
-  border: 1px solid black;
+
+  flex-direction: column;
+
   height: 100vh;
   width: 100vw;
   background-size: cover;
   background-image: url("/images/jeremy-bishop-td7G4W1HSIE-unsplash.jpg");
 
   &__box {
+    margin-top: 5rem;
     display: flex;
     align-items: center;
     flex-direction: column;
-
-    border: 2px solid black;
+    height: 50rem;
+    width: 42rem;
+    border: 5px solid black;
     text-align: center;
     background: transparentize($color: $darker-purp, $amount: 0.7);
-
-    padding: $l-size $xl-size;
-    margin-bottom: 10rem;
   }
 
   &__title {
     color: white;
     font-size: 400%;
-    letter-spacing: 1rem;
-
-    margin: 0;
+    letter-spacing: 1.5rem;
+    margin-bottom: 3rem;
   }
 
-  &__sub {
-    margin-bottom: 4rem;
-    color: black;
-    color: $darkest-blue;
-    font-weight: bold;
-  }
   &__name {
-    color: $lightest-blue;
-    display: block;
-    font-size: 150%;
+    color: $electric;
+    font-size: 280%;
+    letter-spacing: 10px;
+    display: inline-block;
+    margin-top: 4rem;
+    margin-bottom: 0;
+    font-weight: 700;
+    line-height: 1.2;
 
     //    margin: $s-size;
   }
+}
+
+.box-layout__move-both {
+  text-align: center;
+}
+
+.box-layout__description {
+  color: $electric;
+  margin-bottom: 3rem;
 }

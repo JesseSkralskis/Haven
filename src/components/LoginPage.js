@@ -1,5 +1,5 @@
 import React from "react";
-import uuid from "uuid";
+
 
 import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
@@ -13,14 +13,18 @@ export const LoginPage = ({ startLogin }) => {
     <div className="box-layout">
       <div className="box-layout__box">
         <h1 className="box-layout__title ">Pivot</h1>
-        <p className="box-layout__sub">
-          {" "}
-          <span className="box-layout__name">Jesse Skralskis's</span> journey
-          into becoming a fullstack developer.
-        </p>
-        <button className="buttons" onClick={startLogin}>
-          Login with Google
-        </button>
+        <div className="box-layout__box-container">
+          <button className="buttons" onClick={startLogin}>
+            Login with Google
+          </button>
+        </div>
+
+        <div className="box-layout__move-both">
+          <p className="box-layout__name">Jesse Skralskis</p>
+          <p className="box-layout__description">
+            a full stack web developer coding blog
+          </p>
+        </div>
       </div>
     </div>
   );

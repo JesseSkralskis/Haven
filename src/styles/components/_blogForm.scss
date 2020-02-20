@@ -21,7 +21,7 @@
   text-align: center;
   width: 25rem;
   font-size: large;
-
+  background: rgba(7, 11, 52, 0.2);
   height: 4rem;
   margin: $l-size 0;
   border: none;
@@ -47,10 +47,9 @@
 }
 
 .bf__textArea ::placeholder {
-  color: white;
+  color: transparentize($color: white, $amount: 0.7);
 
   text-align: center;
-  
 }
 
 .bf__above {

@@ -1,0 +1,142 @@
+.CalendarDay__selected_span {
+}
+
+.CalendarDay__selected {
+}
+
+.CalendarDay__selected:hover {
+}
+
+.CalendarDay__hovered_span:hover,
+.CalendarDay__hovered_span {
+}
+
+.DateRangePickerInput {
+  background-color: rgba(72, 52, 117, 0.4);
+}
+
+.DateInput_input {
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 12px;
+  color: #ffffff;
+  background-color: rgba(133, 89, 136, 0.9);
+  width: 100%;
+  padding: 11px 11px 9px;
+  border: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 2px solid transparent;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.DateRangePickerInput__withBorder {
+  border: 1px #2b2f77 solid;
+  border-radius: 0;
+}
+
+.single {
+  .DateInput_input {
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 12px;
+    color: #ffffff;
+    background-color: red;
+    width: 100%;
+    padding: 11px 11px 9px;
+    border: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid transparent;
+    border-left: 0;
+    border-radius: 0;
+  }
+}
+
+.CalendarDay__selected_span {
+  background: rgba(72, 52, 117, 0.6);
+  border: 1px double #2b2f77;
+  color: #fff;
+}
+
+.CalendarDay__selected,
+.CalendarDay__selected:active,
+.CalendarDay__selected:hover {
+  background: rgb(133, 89, 136);
+  border: 1px double #a60074;
+  color: #fff;
+}
+
+.CalendarMonth {
+  background: rgba(133, 89, 136, 0.7);
+  text-align: center;
+  vertical-align: top;
+  -webkit-user-select: none;
+  user-select: #937dc5;
+
+  height: 0px;
+}
+
+.DayPicker_transitionContainer {
+  position: relative;
+  overflow: hidden;
+  background: rgba(133, 89, 136, 0.7);
+  border-radius: 3px;
+  height: 320px !important;
+
+  // bottom: 10rem;
+}
+
+.DayPicker_weekHeader_ul {
+  list-style: none;
+  margin: 1px;
+  padding-left: 0;
+  padding-right: 0;
+
+  padding-top: 0;
+  height: 3rem;
+
+  font-size: 13px;
+}
+
+.DayPicker_weekHeader_li {
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 0;
+  color: white;
+}
+.CalendarMonth_caption {
+  color: whitesmoke;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 0;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  // padding-bottom: 3rem;
+  caption-side: initial;
+}
+
+.DayPickerNavigation_button__default {
+  border: 1px solid #e4e7e7;
+  background-color: rgba(72, 52, 117, 0.6);
+  color: #757575;
+}
+
+.CalendarMonthGrid__horizontal {
+  position: absolute;
+  left: 9px;
+  // border: red 1px solid;
+}
+
+.CalendarMonthGrid {
+  background: rgba(133, 89, 136, 0);
+  text-align: left;
+  z-index: 1;
+}
+
+.DayPicker {
+  background: #fff;
+  position: relative;
+  text-align: left;
+}

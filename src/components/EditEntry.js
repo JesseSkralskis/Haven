@@ -2,14 +2,10 @@ import React from "react";
 import Header from "./Header";
 import BlogForm from "./BlogForm";
 import { connect } from "react-redux";
-import { editBlog, startEditBlog } from "../actions/blog";
+import { startEditBlog } from "../actions/blog";
 
 export function EditEntry({ startEditBlog, blog, match }) {
-  
   const onSubmit = (id, blogFromForm) => {
-  
-    
-    
     startEditBlog(id, blogFromForm);
   };
 
@@ -21,7 +17,6 @@ export function EditEntry({ startEditBlog, blog, match }) {
   );
 }
 const mapDispatchToProps = dispatch => ({
-  editBlog: (id, blog) => dispatch(editBlog(id, blog)),
   startEditBlog: (id, blog) => dispatch(startEditBlog(id, blog))
 });
 

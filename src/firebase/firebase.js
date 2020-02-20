@@ -12,8 +12,6 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
- 
-
 //this set up allows us to geab all the firebase stuff we need from other places
 
 firebase.initializeApp(firebaseConfig);
@@ -24,5 +22,3 @@ const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 export { firebase, googleAuthProvider, database as default };
-
-

@@ -1,5 +1,5 @@
 import React from "react";
-import Filters from "./Filters";
+
 import BlogList from "./BlogList";
 import Header from "./Header";
 
@@ -12,7 +12,6 @@ const DashBoard = () => (
       <Header />
     </div>
     <div className="dashboard__remaining-space">
-    
       <BlogList />
     </div>
   </div>
