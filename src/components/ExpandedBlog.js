@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import Header from "../components/Header";
 import moment from "moment";
 import { deleteEntry, startDelete } from "../actions/blog";
+import { king } from "../routes/PublicRoute";
 
-export function ExpandedBlog({ blogy, match, startDelete, history }) {
+export function ExpandedBlog({ blogy, match, startDelete, history, uid }) {
   const handleDelete = () => {
     console.log(blogy.id);
     startDelete(blogy.id);
@@ -24,13 +25,22 @@ export function ExpandedBlog({ blogy, match, startDelete, history }) {
           <article key={match.params.id}>
             <h1>{blogy.title}</h1>
             <p>{blogy.blog}</p>
-
-            <button className="buttons buttons--delete" onClick={handleDelete}>
-              Delete Post
-            </button>
-            <button className="buttons" onClick={handleEdit}>
-              Edit Post
-            </button>
+            {king === uid}
+            <div>
+              {uid === king && (
+                <button
+                  className="buttons buttons--delete"
+                  onClick={handleDelete}
+                >
+                  Delete Post
+                </button>
+              )}
+              {uid === king && (
+                <button className="buttons" onClick={handleEdit}>
+                  Edit Post
+                </button>
+              )}
+            </div>
 
             <p id="p2">
               {moment(blogy.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a")}
@@ -46,7 +56,8 @@ const mapStateToProps = (state, props) => {
   return {
     blogy: state.blogPost.find(blog => {
       return blog.id === props.match.params.id;
-    })
+    }),
+    uid: state.auth.uid
   };
 };
 

@@ -8,10 +8,15 @@ const Header = ({ startLogout }) => (
   //nav we are on using activeclassname and the styling is-active
   <header className="header">
     <div className="header__content">
-      <Link className="header__link" to="/dashboard">
+      <div className="header__psuedo"></div>
+      <div className="header__link-wrapper">
         {" "}
-        <h1 id="header__h1">Pivot</h1>
-      </Link>
+        <Link className="header__link" to="/dashboard">
+          {" "}
+          <h1 id="header__h1">Pivot</h1>
+        </Link>
+      </div>
+
       <div className="header__buttonContainer">
         <button className="buttons buttons--logout" onClick={startLogout}>
           Logout

@@ -1,9 +1,5 @@
 import { firebase, googleAuthProvider } from "../firebase/firebase";
 
-const king = process.env.REACT_APP_KING_KEY;
-
-console.log(`^^^^^^^^^^king`);
-
 export const startLogin = () => {
   return () => {
     return firebase.auth().signInWithPopup(googleAuthProvider);
@@ -24,5 +20,3 @@ export const login = uid => ({
 export const logout = () => ({
   type: "LOGOUT"
 });
-
-

@@ -38,19 +38,19 @@
 
 .single {
   .DateInput_input {
-    font-weight: 200;
+    font-weight: 400;
     font-size: 15px;
     line-height: 12px;
     color: #ffffff;
-    background-color: red;
+    background-color: #a965a1;
     width: 100%;
     padding: 11px 11px 9px;
-    border: 0;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 2px solid transparent;
-    border-left: 0;
+
     border-radius: 0;
+  }
+  .SingleDatePickerInput__withBorder {
+    border-radius: 2px;
+    border: 2px rgba(43, 47, 119, 0.7) solid;
   }
 }
 
@@ -139,4 +139,10 @@
   background: #fff;
   position: relative;
   text-align: left;
+}
+
+.CalendarDay__default {
+  border: 1px solid #e4e7e7;
+
+  // background: #c7afaf;
 }

@@ -78,13 +78,15 @@ export function BlogForm(props) {
       )}
       <form className="bf__formContainer" onSubmit={handleOnSubmit}>
         <div className="bf__above">
-          <input
-            className="bf__input"
-            value={title}
-            onChange={handleOnChange}
-            placeholder="Blog Title"
-            type="text"
-          />
+          <div className="bf__input-wrapper">
+            <input
+              className="bf__input"
+              value={title}
+              onChange={handleOnChange}
+              placeholder="Blog Title"
+              type="text"
+            />
+          </div>
           <div className="single">
             <SingleDatePicker
               date={createdAt}

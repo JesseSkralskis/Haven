@@ -70,10 +70,7 @@ export const setBlogs = blogs => ({
 });
 
 export const startSetBlog = () => {
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid; //autherised user specific id
-   
-   
+  return dispatch => {
     return database
       .ref(`users/${king}/blogs`)
       .once("value")

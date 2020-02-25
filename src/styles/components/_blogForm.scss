@@ -1,38 +1,42 @@
-.bf__container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.bf__formContainer {
   background: url("/images/photography-of-road-at-nighttime-705425.jpg");
   background-size: cover;
-  background-position: center;
-}
-
-.bf__formContainer {
-  width: 70rem;
+  background-position: center center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: $xl-size;
+
+  width: 100%;
+  height: 100%;
 }
 
 .bf__input {
+  color: white;
   text-align: center;
   width: 25rem;
-  font-size: large;
-  background: rgba(7, 11, 52, 0.2);
+  font-size: medium;
+  background-color: #9c6195;
   height: 4rem;
+
   margin: $l-size 0;
   border: none;
   overflow: auto;
   outline: none;
+  border: 2px rgba(43, 47, 119, 0.7) solid;
+  @media (max-width: 749px) {
+    margin: 1.5rem 0;
+  }
+}
+
+.bf__input::placeholder {
+  color: transparentize($color: white, $amount: 0.3);
+  text-align: center;
 }
 
 .bf__textArea textarea {
   width: 100rem;
   height: 50rem;
-  font-size: x-large;
+  font-size: large;
   padding: 4rem;
   text-align: left;
   line-height: 1.5;
@@ -44,23 +48,49 @@
   color: white;
   font-weight: 700;
   letter-spacing: 1.5px;
+  @media (max-width: 994px) {
+    width: 70rem;
+  }
+  @media (max-width: 714px) {
+    width: 50rem;
+  }
+
+  @media (max-width: 714px) {
+    width: 30rem;
+  }
 }
 
 .bf__textArea ::placeholder {
-  color: transparentize($color: white, $amount: 0.7);
+  color: transparentize($color: white, $amount: 0.2);
 
   text-align: center;
+  font-size: 120%;
+
+  padding-top: 15rem;
 }
 
 .bf__above {
   width: 100rem;
   display: flex;
+  flex-direction: column;
 
   align-items: center;
   justify-content: space-evenly;
+  @media (max-width: 1026px) {
+    width: 70rem;
+  }
+  @media (max-width: 749px) {
+    flex-direction: column-reverse;
+    width: 30rem;
+  }
 }
 
 .bf__buttonPost {
   width: 18rem;
   margin-bottom: 2rem;
+}
+.bf__input-wrapper {
+}
+.single {
+  margin-top: 0.5rem;
 }

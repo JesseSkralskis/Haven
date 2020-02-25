@@ -3,49 +3,31 @@ import { connect } from "react-redux";
 import BlogListItem from "./BlogListItem";
 import selectBlogs from "../selectors/blogSelectors";
 import Filters from "./Filters";
-import { Link } from "react-router-dom";
-import { king } from "../routes/PublicRoute";
 
-const BlogList = ({ blogs, uid }) =>
-  uid === king ? (
-    <div className="bloglist__container">
-      <div className="bloglist__container--secondary">
-        <Filters />
-      </div>
-      {blogs.map(({ id, title, blog, createdAt }) => (
-        <BlogListItem
-          blogs={blogs}
-          id={id}
-          key={id}
-          title={title}
-          blog={blog}
-          createdAt={createdAt}
-        />
-      ))}
-
-      <div className="bloglist__post">
-        <Link to="/create">
-          <button className="buttons buttons--post">New Post</button>
-        </Link>
+const BlogList = ({ blogs, uid }) => (
+  <div className="bloglist__container">
+    <div className="bloglist__scrollbar-removal">
+      <div className="bloglist__blogs-wrapper">
+        {blogs.map(({ id, title, blog, createdAt }) => (
+          <BlogListItem
+            uid={uid}
+            className="bloglist__blog"
+            blogs={blogs}
+            id={id}
+            key={id}
+            title={title}
+            blog={blog}
+            createdAt={createdAt}
+          />
+        ))}
       </div>
     </div>
-  ) : (
-    <div className="xbloglist__container">
-      <div className="xbloglist__container--secondary">
-        <Filters />
-      </div>
-      {blogs.map(({ id, title, blog, createdAt }) => (
-        <BlogListItem
-          blogs={blogs}
-          id={id}
-          key={id}
-          title={title}
-          blog={blog}
-          createdAt={createdAt}
-        />
-      ))}
+
+    <div className="bloglist__filters-wrapper">
+      <Filters />
     </div>
-  );
+  </div>
+);
 
 const mapStateToProps = state => ({
   blogs: selectBlogs(state.blogPost, state.filters),

@@ -4,12 +4,16 @@
   flex-direction: column;
   width: 40rem;
 
-  margin: 2rem 0;
+  margin: 0rem 0 5rem 0;
   color: rgb(255, 255, 255);
-  border: $darkest-blue 1px solid;
+  border: $darkest-blue 2px solid;
 
   align-items: center;
   height: 45rem;
+  @media (max-width: $desktop-breakpoint) {
+    width: 32rem;
+    height: 35rem;
+  }
 
   h1 {
     // padding-top: 2.5rem;
@@ -17,6 +21,11 @@
     margin: 0;
     text-align: center;
     font-size: 150%;
+    @media (max-width: $desktop-breakpoint) {
+      font-size: 100%;
+      width: 80%;
+      padding: 1.5rem 1.5rem;
+    }
   }
 
   p {
@@ -28,16 +37,29 @@
 
     line-height: 1.5;
     padding: 0.5rem $xl-size;
-  }
-
-  button {
-    display: flex;
-    justify-content: center;
-    margin: 2rem $s-size;
+    @media (max-width: $desktop-breakpoint) {
+      max-height: 10rem;
+      margin-bottom: 1rem;
+    }
   }
 
   small {
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
+    @media (max-width: $desktop-breakpoint) {
+      margin: 1rem 0;
+    }
   }
+}
+
+.bloglist__post {
+  @media (max-width: $desktop-breakpoint) {
+    position: static;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+.bloglist__readmore-wrapper {
+  margin: 1.5rem 0;
 }

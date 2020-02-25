@@ -4,8 +4,6 @@ import { Route, Redirect } from "react-router-dom";
 
 export const king = process.env.REACT_APP_KING_KEY;
 
-
-
 //destructure props renaming component to capital because we will be rendering it
 //when destructering we can get the rest of whatever using the ...rest
 export const PublicRoute = ({
@@ -18,12 +16,12 @@ export const PublicRoute = ({
     component={props =>
       isAuthenticated ? (
         <div>
-          <Redirect to="/dashboard" />
-        </div>
-      ) : (
-        <div>
           <Component {...props} />
         </div>
+      ) : (
+          
+            <Redirect to="/"/>
+        
       )
     }
   />
@@ -31,8 +29,7 @@ export const PublicRoute = ({
 
 const mapStateToProps = state => ({
   //using thwe double !! to get actual boolean values
-  isAuthenticated: !!state.auth.uid,
-  authId: state.auth.uid
+  isAuthenticated: !!state.auth.uid
 });
 
 export default connect(mapStateToProps)(PublicRoute);

@@ -1,6 +1,3 @@
-import moment from "moment";
-import uuid from "uuid";
-
 const defaultBlogState = [];
 
 export default (state = defaultBlogState, action) => {
@@ -23,7 +20,7 @@ export default (state = defaultBlogState, action) => {
           return blog;
         }
       });
-    
+
     case "SET_BLOGS":
       return action.blogs;
 

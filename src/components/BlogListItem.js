@@ -1,9 +1,11 @@
 import React from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
+import { king } from "../routes/PublicRoute";
 
 import { withRouter } from "react-router-dom";
 
-export function BlogListItem({ id, title, blog, createdAt, history }) {
+export function BlogListItem({ id, title, blog, createdAt, history, uid }) {
   const handleOnClick = id => {
     history.push(`/expandedBlog/${id}`);
   };
@@ -14,13 +16,22 @@ export function BlogListItem({ id, title, blog, createdAt, history }) {
       <div className="bloglist_blog">
         <p>{blog}</p>
       </div>
+      <div className="bloglist__readmore-wrapper">
+        <button
+          className="buttons buttons--secondary_darkPurp"
+          onClick={() => handleOnClick(id)}
+        >
+          Read More
+        </button>
+      </div>
 
-      <button
-        className="buttons buttons--secondary_darkPurp"
-        onClick={() => handleOnClick(id)}
-      >
-        Read More
-      </button>
+      <div className="bloglist__post">
+        {king === uid && (
+          <Link to="/create">
+            <button className="buttons buttons--post">New Post</button>
+          </Link>
+        )}
+      </div>
 
       <small>{moment(createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a")}</small>
     </div>

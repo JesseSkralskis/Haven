@@ -10,8 +10,11 @@
   background: url("/images/cropped-road.jpg") no-repeat;
   overflow-y: scroll;
   height: 100%;
-  background-position: 0 0;
+  background-position: 0rem 0rem;
   background-size: cover;
+  @media (max-width: $desktop-breakpoint) {
+    padding-top: 0rem;
+  }
 }
 
 .expanded__inner {
@@ -25,6 +28,10 @@
   border: 1px $darkest-blue solid;
   padding: $xl-size $xl-size;
   background: transparentize($darkest-purp, 0.4);
+  @media (max-width: 716px) {
+    width: 400px;
+    background: transparentize($darkest-purp, 0.2);
+  }
 
   h1 {
     text-align: center;
@@ -34,6 +41,10 @@
 
     margin: 0 auto;
     padding-bottom: 3rem;
+    @media (max-width: 716px) {
+      font-size: 115%;
+      max-width: 35rem;
+    }
   }
 
   p {
@@ -44,6 +55,10 @@
     line-height: 1.5;
     font-size: larger;
     padding-bottom: 2rem;
+    @media (max-width: 716px) {
+      max-width: 45rem;
+      font-size: 100%;
+    }
   }
 
   button {

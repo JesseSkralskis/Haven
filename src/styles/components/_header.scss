@@ -1,6 +1,9 @@
 .header {
   margin: 0;
+
   background: $darkest-blue;
+  @media (max-width: $desktop-breakpoint) {
+  }
 }
 
 .header__content {
@@ -10,20 +13,28 @@
   justify-content: space-between;
 }
 
+.header__link-wrapper {
+  margin-left: 10%;
+}
 .header__link {
   text-decoration: none;
   h1 {
     letter-spacing: 1.5rem;
     font-size: 325%;
-    margin-left: 58.5rem;
+
     color: white;
   }
 }
 
 .header__buttonContainer {
-  margin-right: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin-bottom: 2rem;
+  margin-right: 2%;
+}
+
+.header__psuedo {
+  height: 100%;
+  width: 4rem;
 }

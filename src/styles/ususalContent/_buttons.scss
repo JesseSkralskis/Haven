@@ -3,8 +3,7 @@
   border: black 1px solid;
   padding: $s-size;
   font-size: $font-size-large;
-  //The font-weight property sets how thick or thin characters in text should be displayed.
-  //100-900 spectrum
+
   font-weight: 500;
   border: none;
   color: white;
@@ -16,6 +15,10 @@
   text-decoration: none;
   line-height: 1;
   width: 18rem;
+  @media (max-width: $desktop-breakpoint) {
+    font-size: small;
+    width: 15rem;
+  }
 }
 
 //how to make a modifier
@@ -33,6 +36,10 @@
   padding: 5px 2px;
   width: 10rem;
   font-size: small;
+  @media (max-width: $desktop-breakpoint) {
+    font-size: 40%;
+    width: 6rem;
+  }
 }
 
 .buttons--delete {

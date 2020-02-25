@@ -27,15 +27,12 @@ const AppRouter = () => (
       {/* switch allows us to say if a route has no path match to print the
       component */}
       <Switch>
-        <PublicRoute exact={true} path="/" component={LoginPage} />
-        <PrivateRoute path="/dashboard" component={DashBoard} />
+        <Route path="/" exact={true} component={LoginPage} />
+        <PublicRoute path="/dashboard" component={DashBoard} />
 
-        <Route path="/create" component={CreateBlog} />
-        <Route
-          path="/expandedBlog/:id"
-          render={props => <ExpandedBlog {...props} />}
-        />
-        <Route path="/edit/:id" component={EditEntry} />
+        <PrivateRoute path="/create" component={CreateBlog} />
+        <PublicRoute path="/expandedBlog/:id" component={ExpandedBlog} />
+        <PrivateRoute path="/edit/:id" component={EditEntry} />
 
         <Route component={NotFoundPage} />
       </Switch>

@@ -9,8 +9,14 @@
   background-size: cover;
   background-image: url("/images/jeremy-bishop-td7G4W1HSIE-unsplash.jpg");
 
+  @media (max-width: $desktop-breakpoint) {
+    background-size: cover;
+    background-position: -18rem 0;
+    background-repeat: repeat;
+  }
+
   &__box {
-    margin-top: 5rem;
+    margin-top: 10rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -19,26 +25,38 @@
     border: 5px solid black;
     text-align: center;
     background: transparentize($color: $darker-purp, $amount: 0.7);
+    @media (max-width: $desktop-breakpoint) {
+      width: 30rem;
+      height: 40rem;
+      margin-top: 17rem;
+    }
   }
 
   &__title {
     color: white;
     font-size: 400%;
-    letter-spacing: 1.5rem;
+    letter-spacing: 2rem;
     margin-bottom: 3rem;
+    @media (max-width: $desktop-breakpoint) {
+      margin-bottom: 2rem;
+      font-size: 295%;
+    }
   }
 
   &__name {
     color: $electric;
     font-size: 280%;
-    letter-spacing: 10px;
+    letter-spacing: 8px;
     display: inline-block;
     margin-top: 4rem;
     margin-bottom: 0;
     font-weight: 700;
     line-height: 1.2;
-
-    //    margin: $s-size;
+    @media (max-width: $desktop-breakpoint) {
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+      font-size: 250%;
+    }
   }
 }
 
@@ -49,4 +67,8 @@
 .box-layout__description {
   color: $electric;
   margin-bottom: 3rem;
+  @media (max-width: $desktop-breakpoint) {
+    margin-bottom: 1rem;
+    font-size: 90%;
+  }
 }
