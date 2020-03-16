@@ -8,9 +8,11 @@ html {
 
 body {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: $m-size;
+  font-size: medium;
   line-height: 1.6;
   margin: 0px;
+  height: 100vh;
+  width: 100vw;
 }
 
 button {

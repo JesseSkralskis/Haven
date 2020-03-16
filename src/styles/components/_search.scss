@@ -1,0 +1,64 @@
+//landing
+.search__container {
+  height: 100%;
+  width: 100vw;
+
+  background-image: url("/images/landingHouse.jpg");
+  background-size: cover;
+  background-position: 50% 75%;
+  display: flex;
+  justify-content: center;
+}
+
+.search__input-wrapper {
+  margin-top: 31.3rem;
+}
+.search__input {
+  width: 40rem;
+  height: 4rem;
+  font-weight: 600;
+  font-size: 200%;
+  font-family: "Cormorant Garamond", serif;
+}
+input::placeholder {
+  text-align: left;
+  font-size: 110%;
+  font-weight: 200;
+}
+
+.results__container {
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: [map] 50vw [houses] 50vw [end];
+  grid-template-rows: [container] auto;
+}
+
+.search__map {
+  grid-column: map;
+  grid-row: container;
+}
+
+.search__scrollbar-removal {
+  overflow: hidden;
+
+  margin: 0;
+  padding: 0;
+}
+.search__results {
+  grid-column: houses/end;
+  grid-row: container;
+  margin-top: 1rem;
+  margin-left: 1rem;
+
+  height: 100vh;
+  width: 50vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}

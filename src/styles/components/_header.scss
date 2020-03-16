@@ -1,40 +1,29 @@
 .header {
-  margin: 0;
-
-  background: $darkest-blue;
-  @media (max-width: $desktop-breakpoint) {
-  }
-}
-
-.header__content {
+  display: grid;
   height: 100%;
-  width: 100%;
+  background: #546277;
+
+  grid-template-columns: [first] 3fr [logo] 5fr [last-start] 3fr [end];
+  grid-template-rows: [full] 100% [end];
+
+  align-items: center;
+}
+
+.header__wrapper {
+  grid-column: logo;
+  grid-row: full;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.header__link-wrapper {
-  margin-left: 10%;
-}
 .header__link {
-  text-decoration: none;
   h1 {
-    letter-spacing: 1.5rem;
-    font-size: 325%;
-
-    color: white;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1000%;
+    font-weight: 500;
+    color: #061951;
   }
 }
 
 .header__buttonContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin-bottom: 2rem;
-  margin-right: 2%;
-}
-
-.header__psuedo {
-  height: 100%;
-  width: 4rem;
 }

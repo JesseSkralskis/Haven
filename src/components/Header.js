@@ -3,28 +3,36 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 
-const Header = ({ startLogout }) => (
-  //navlink allows gives us props that help us style easily the
-  //nav we are on using activeclassname and the styling is-active
-  <header className="header">
-    <div className="header__content">
-      <div className="header__psuedo"></div>
-      <div className="header__link-wrapper">
-        {" "}
-        <Link className="header__link" to="/dashboard">
+const Header = ({ startLogout }) => {
+  const handleClick = () => {
+    window.location.reload(false);
+  };
+
+  return (
+    //navlink allows gives us props that help us style easily the
+    //nav we are on using activeclassname and the styling is-active
+    <header className="header">
+      {" "}
+      <div className="header__wrapper">
+        <Link
+          onClick={handleClick}
+          target="_self"
+          style={{ textDecoration: "none" }}
+          className="header__link"
+          to="/"
+        >
           {" "}
-          <h1 id="header__h1">Pivot</h1>
+          <h1 className="header__h1">Haven</h1>
         </Link>
       </div>
-
       <div className="header__buttonContainer">
-        <button className="buttons buttons--logout" onClick={startLogout}>
-          Logout
-        </button>
+        {/* <button className="buttons buttons--logout" onClick={startLogout}>
+        Logout
+      </button> */}
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 const mapDipatchToProps = dispatch => ({
   startLogout: () => dispatch(startLogout())

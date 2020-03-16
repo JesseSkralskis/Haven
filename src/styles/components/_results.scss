@@ -1,0 +1,54 @@
+.results__card {
+  width: 99%;
+  border: #061951 solid 1px;
+  color: black;
+  min-height: 280px;
+}
+
+.results__photo-container {
+  width: 100%;
+}
+
+.results__background-photo {
+  width: 100%;
+  height: 20rem;
+  background-size: cover;
+  background-position: center;
+}
+
+//modal
+
+.results__modal {
+  background: transparent;
+}
+
+.results__modal-container {
+  border: 2px solid #061951;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: [photos] 1fr [info] 1fr [end];
+  grid-template-rows: [body] auto [end];
+  width: 90vw;
+  height: 100vh;
+  background: white;
+}
+.results__modal-photos-wrapper {
+  border: 1px solid darkblue;
+  grid-column: photos/info;
+  grid-row: body/end;
+  overflow-y: scroll;
+  width: 50vw;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: auto;
+}
+
+.results__modal-photo-wrapper {
+  width: 340px;
+  height: 307px;
+
+  margin-left: 1rem;
+  margin-top: 1rem;
+  background-size: contain;
+}

@@ -1,12 +1,9 @@
 .buttons {
-  background: $blue-button;
   border: black 1px solid;
-  padding: $s-size;
-  font-size: $font-size-large;
 
   font-weight: 500;
   border: none;
-  color: white;
+  color: black;
   //so the default inline margin for links wont be in place
   //so that the vertical margin and padding will be in play
   //button will always be on it own line
@@ -14,11 +11,7 @@
   //get rid of line
   text-decoration: none;
   line-height: 1;
-  width: 18rem;
-  @media (max-width: $desktop-breakpoint) {
-    font-size: small;
-    width: 15rem;
-  }
+  width: 5rem;
 }
 
 //how to make a modifier
@@ -28,7 +21,6 @@
 }
 
 .buttons--post {
-  background: $blue-button;
 }
 
 .buttons--logout {
@@ -36,10 +28,6 @@
   padding: 5px 2px;
   width: 10rem;
   font-size: small;
-  @media (max-width: $desktop-breakpoint) {
-    font-size: 40%;
-    width: 6rem;
-  }
 }
 
 .buttons--delete {

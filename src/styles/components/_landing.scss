@@ -1,0 +1,20 @@
+.landing__container {
+  height: 100vh;
+  width: 100vw;
+
+  display: grid;
+  grid-template-rows: [header] 15% [rest] auto [end];
+  grid-template-columns: [p] auto [end];
+  margin: 0;
+  padding: 0;
+}
+
+.landing__header {
+  grid-row: header;
+  grid-column: p;
+}
+
+.landing__search {
+  grid-row: rest;
+  grid-column: p/end;
+}
