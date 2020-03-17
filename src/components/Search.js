@@ -122,9 +122,7 @@ const Search = () => {
         <div className="search__scrollbar-removal">
           <div className="search__results">
             {apiData.length > 0 &&
-              apiData.map(property => (
-                <Results key={property.propId} {...property} />
-              ))}
+              apiData.map(property => <Results key={uuid()} {...property} />)}
           </div>
         </div>
       )}

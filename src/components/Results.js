@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import uuid from "uuid";
 import Modal from "react-modal";
+import numeral from "numeral";
 
 Modal.setAppElement("#root");
 
@@ -21,7 +22,31 @@ export default function Results({
     propStatus: ""
   });
   const [details, setDetails] = useState({
-    photos: []
+    photos: [],
+    propertyType: "",
+    price: 0,
+    beds: "",
+    baths: "",
+    sqrft: 0,
+    yearBuilt: 0,
+    listingAgent: "",
+    name: "",
+    email: "",
+    photoCentered: "",
+
+    description: "",
+    loanAmount: 0,
+    rate: 0,
+    term: 0,
+    monthlyPayment: 0,
+    principle_interest: 0,
+    monthPropertyTax: 0,
+    monthlyHomeInsurance: 0,
+    monthlyMortgageInsurance: 0,
+    totalPayment: 0,
+    downPayment: 0,
+    listingDateValue: 0,
+    addressNeighborhood: ""
   });
   useEffect(() => {
     if (details.photos.length > 0) {
@@ -48,7 +73,38 @@ export default function Results({
           return json;
         })
         .then(json =>
-          setDetails({ photos: json.listing.photos.map(photo => photo.href) })
+          setDetails({
+            photos: json.listing.photos.map(photo => photo.href),
+            propertyType: json.listing.raw_prop_type,
+            price: json.listing.price,
+            beds: json.listing.beds,
+            baths: json.listing.baths,
+            sqrft: json.listing.sqft,
+            yearBuilt: json.listing.year_built,
+            listingAgent: json.listing.agent.name,
+            email: json.listing.agent.email,
+            photoCentered: json.listing.agent.face_centered_photo,
+
+            description: json.listing.description,
+            loanAmount: json.listing.mortgage.estimate.loan_amount,
+            rate: json.listing.mortgage.estimate.rate,
+            term: json.listing.mortgage.estimate.term,
+            monthlyPayment: json.listing.mortgage.estimate.monthly_payment,
+            principle_interest:
+              json.listing.mortgage.estimate.principle_and_interest,
+            monthPropertyTax:
+              json.listing.mortgage.estimate.monthly_property_taxes,
+            monthlyHomeInsurance:
+              json.listing.mortgage.estimate.monthly_home_insurance,
+            totalPayment: json.listing.mortgage.estimate.total_payment,
+            downPayment: json.listing.mortgage.estimate.down_payment,
+            listingDateValue:
+              json.listing.client_display_text.listing_date_value,
+            addressNeighborhood:
+              json.listing.client_display_text.address_with_neighborhood,
+            propertyDisplayName:
+              json.listing.client_display_text.prop_type_display_name
+          })
         )
         .catch(err => {
           console.log(err);
@@ -62,9 +118,6 @@ export default function Results({
       listId,
       propStatus
     });
-  };
-  const handleClose = () => {
-    setModalIsOpen(false);
   };
 
   return (
@@ -86,8 +139,7 @@ export default function Results({
             </div>
             <h3>{price}</h3>
             <h5>{address}</h5>
-            <h3>{propId}</h3>
-            <h3>{listId}</h3>
+
             <h6>{type}</h6>
           </div>
         </Link>
@@ -105,6 +157,7 @@ export default function Results({
             {details.photos.length > 0 &&
               details.photos.map(photo => (
                 <div
+                  key={uuid()}
                   className="results__modal-photo-wrapper"
                   style={{
                     background: `url(${photo}) no-repeat`,
@@ -112,6 +165,31 @@ export default function Results({
                   }}
                 ></div>
               ))}
+          </div>
+          <div className="results__modal-details-headers_container">
+            <div className="results__modal-details-title">
+              <h3>Haven</h3>
+            </div>
+
+            <div className="results__modal-details-sub">
+              <h3 className="results__modal-details-spans">
+                <span className="price">
+                  {numeral(details.price).format("$0,0.00")}{" "}
+                </span>{" "}
+                <span className="num">{details.beds}</span>{" "}
+                <span className="abr">bds </span>{" "}
+                <span className="break">|</span>{" "}
+                <span className="num">{details.baths}</span>{" "}
+                <span className="abr"> ba </span>
+                <span className="break">|</span>{" "}
+                <span className="num">{details.sqrft}</span>{" "}
+                <span className="abr">sqft </span>
+              </h3>
+
+              <h4 className="results-modal-address">
+                {details.addressNeighborhood}
+              </h4>
+            </div>
           </div>
         </div>
       </Modal>

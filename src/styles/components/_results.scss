@@ -24,31 +24,90 @@
 
 .results__modal-container {
   border: 2px solid #061951;
-  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: [photos] 1fr [info] 1fr [end];
+  grid-template-columns: [photos] 30vw [info] 70vw [end];
   grid-template-rows: [body] auto [end];
-  width: 90vw;
+
   height: 100vh;
   background: white;
 }
+//photos
 .results__modal-photos-wrapper {
   border: 1px solid darkblue;
-  grid-column: photos/info;
-  grid-row: body/end;
+  grid-column: info;
+  grid-row: body;
   overflow-y: scroll;
-  width: 50vw;
+  width: 70vw;
   display: grid;
 
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-template-rows: auto;
 }
 
 .results__modal-photo-wrapper {
-  width: 340px;
   height: 307px;
 
   margin-left: 1rem;
   margin-top: 1rem;
   background-size: contain;
+}
+//details
+
+.results__modal-details-headers_container {
+  width: 30vw;
+
+  grid-column: photos;
+  grid-row: body/end;
+  display: grid;
+  grid-template-rows: [title] 8rem [headBody] auto [end];
+  grid-template-columns: [fullWidth] auto [end];
+}
+.results__modal-details-title {
+  grid-row: title/headBody;
+  grid-column: fullWidth;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #c5cfdc;
+  border-bottom: 1px lightgray solid;
+  h3 {
+    font-size: 600%;
+    font-family: "Cormorant Garamond", serif;
+    color: #061951;
+  }
+}
+.results__modal-details-sub {
+  margin-top: 2rem;
+  .price {
+    font-size: 150%;
+    display: inline-block;
+    margin-right: 3rem;
+    margin-left: 1rem;
+  }
+  .num {
+    font-size: 115%;
+    font-weight: 300;
+  }
+  .break {
+    font-size: 175%;
+    color: lightgray;
+    font-weight: 250;
+  }
+  .abr {
+    font-size: 100%;
+  }
+}
+
+.results__modal-details-spans {
+  h3 span {
+    font-size: 300%;
+  }
+}
+
+.results-modal-address {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  line-height: 1.85;
+  font-weight: 300;
 }
