@@ -12,6 +12,7 @@
   text-decoration: none;
   line-height: 1;
   width: 5rem;
+  border-radius: 4px;
 }
 
 //how to make a modifier
@@ -24,10 +25,20 @@
 }
 
 .buttons--logout {
-  background: #9e8eb3;
-  padding: 5px 2px;
-  width: 10rem;
-  font-size: small;
+  background: #c5cfdc;
+  padding: 9px 4px;
+  width: 7rem;
+  font-size: smaller;
+  color: #061951;
+
+  &:hover {
+    background: lighten($color: #c5cfdc, $amount: 7);
+  }
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    background: darken($color: #c5cfdc, $amount: 15);
+  }
 }
 
 .buttons--delete {

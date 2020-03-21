@@ -8,9 +8,13 @@ import {
   Marker,
   InfoWindow
 } from "react-google-maps";
+import { Link } from "react-router-dom";
 
 function Map({ data, cordinates }) {
   const [selectedProperty, setSelectedProperty] = useState(null);
+  const handleClick = prop => {
+    console.log(prop);
+  };
 
   return (
     <GoogleMap
@@ -43,11 +47,24 @@ function Map({ data, cordinates }) {
           }}
           onCloseClick={() => setSelectedProperty(null)}
         >
-          <div>
-            <img src={selectedProperty.photo} alt="pic" />
-            <h4>{selectedProperty.price}</h4>
-            <h3>{selectedProperty.address}</h3>
-          </div>
+          <Link
+            style={{ textDecoration: "none" }}
+            to="/"
+            onClick={() => handleClick(selectedProperty)}
+          >
+            <div className="map__info-window">
+              <img
+                style={{
+                  width: "100px",
+                  height: "50px"
+                }}
+                src={selectedProperty.photo}
+                alt="pic"
+              />
+              <h4>{selectedProperty.price}</h4>
+              <h6>{selectedProperty.address}</h6>
+            </div>
+          </Link>
         </InfoWindow>
       )}
     </GoogleMap>
