@@ -1,8 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-
+import detailsSearch from '../reducers/detailsSearch';
 import authReducer from "../reducers/auth";
-import propertyReducer from "../reducers/propertyReducers";
+import firstSearch from '../reducers/firstSearch';
+
+import idsReducer from "../reducers/propertys";
 //in order to keep the dev tools we have to config a specific way
 // this config allows for redux and firebase to work together
 
@@ -14,7 +16,9 @@ export default () => {
   const store = createStore(
     combineReducers({
       auth: authReducer,
-      property: propertyReducer
+      ids: idsReducer,
+      firstSearch: firstSearch,
+      detailsSearch: detailsSearch
     }),
     composeEnhansers(applyMiddleware(thunk))
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

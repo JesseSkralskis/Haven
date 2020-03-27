@@ -1,0 +1,14 @@
+.details__menuResults-container{
+    grid-row: menuResults;
+  grid-column: fullWidth;
+  margin-top: 2rem;
+  display: grid;
+
+  overflow-y: scroll;
+  h4 {
+    line-height: 1.5;
+    font-weight: 450;
+    width: 90%;
+    margin: 0 auto;
+  }
+}

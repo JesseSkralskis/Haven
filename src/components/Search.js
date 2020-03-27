@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import Results from "./Results";
+import { realtorSearch } from "../utilities/apiCalls";
+import { getApiData } from "../actions/firstSearch";
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
 
-import TheMap from "./TheMap";
-import uuid from "uuid";
-
-const Search = () => {
+const Search = ({ history, firstSearch }) => {
   const [apiData, setApiData] = useState([]);
   const [address, setAddress] = useState("");
   const [search, setSearch] = useState("");
@@ -21,52 +19,29 @@ const Search = () => {
 
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
-
-    const addressSplit = value.split(",");
+const addressSplit = value.split(",");
     const city = addressSplit[0];
     const stateCode = addressSplit[1];
-
-    const latLng = await getLatLng(results[0]);
+const latLng = await getLatLng(results[0]);
     setAddress(value);
     setcityState({
       city: city,
       state: stateCode
     });
-
+    setCordinates(latLng);
     realtorSearch(city, stateCode).then(result => setApiData(result));
 
-    setCordinates(latLng);
+    // history.push("/resmap");
   };
 
-  const realtorSearch = async (city, state) => {
-    try {
-      const response = await fetch(
-        `https://realtor.p.rapidapi.com/properties/list-for-sale?sort=relevance&radius=10&city=${city}&offset=0&limit=20&state_code=${state}`,
-        {
-          method: "GET",
-          headers: {
-            "x-rapidapi-host": "realtor.p.rapidapi.com",
-            "x-rapidapi-key":
-              "72335bc7bcmsh9cc768e8c93a992p140efbjsnc1630856fdcb"
-          }
-        }
-      );
-      const res = await response.json();
-      return res.listings.map(listing => ({
-        propStatus: listing.prop_status,
-        propId: listing.property_id,
-        listId: listing.listing_id,
-        type: listing.prop_type,
-        lat: listing.lat,
-        lon: listing.lon,
-        photo: listing.photo,
-        address: listing.address,
-        price: listing.price
-      }));
-    } catch (err) {
-      console.log(err);
+  useEffect(() => {
+    if (apiData.length > 0) {
+      console.log(apiData);
+      console.log(cordinates);
+      firstSearch(apiData, cordinates);
+      history.push("resmap");
     }
-  };
+  }, [apiData, firstSearch, history, cordinates]);
 
   return (
     <div
@@ -117,27 +92,14 @@ const Search = () => {
           </PlacesAutocomplete>
         </div>
       )}
-
-      {apiData.length > 0 && (
-        <div className="search__scrollbar-removal">
-          <div className="search__results">
-            {apiData.length > 0 &&
-              apiData.map(property => <Results key={uuid()} {...property} />)}
-          </div>
-        </div>
-      )}
-
-      <div className="search__map">
-        {apiData.length > 0 && (
-          <TheMap cordinates={cordinates} key={uuid()} locationData={apiData} />
-        )}
-      </div>
     </div>
   );
 };
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  firstSearch: (data, cordinates) => dispatch(getApiData(data, cordinates))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

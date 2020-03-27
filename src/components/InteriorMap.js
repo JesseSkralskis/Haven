@@ -9,15 +9,16 @@ import {
   InfoWindow
 } from "react-google-maps";
 
-function Map({ latLon, schoolsLatLon }) {
+function Map({ lat, lon, schoolsLatLon }) {
+  console.log(`@@@@@@@@@@@@@@${lat}  @@@@@@@@@@@@@@@@${lon}`);
   const [selectedProperty, setSelectedProperty] = useState(null);
 
   return (
     <GoogleMap
       defaultZoom={14}
       defaultCenter={{
-        lat: parseFloat(latLon.lat),
-        lng: parseFloat(latLon.lon)
+        lat: lat,
+        lng: lon
       }}
       defaultOptions={{
         styles: mapStyle,
@@ -25,16 +26,15 @@ function Map({ latLon, schoolsLatLon }) {
       }}
     >
       <Marker
-        key={uuid()}
         position={{
-          lat: parseFloat(latLon.lat),
-          lng: parseFloat(latLon.lon)
+          lat: lat,
+          lng: lon
         }}
         // onMouseOver={() => setSelectedProperty(property)}
-        icon={{
-          url: "images/iconHouse.png",
-          scaledSize: new window.google.maps.Size(83, 45)
-        }}
+        // icon={{
+        //   url: "images/iconHouse.png",
+        //   scaledSize: new window.google.maps.Size(83, 45)
+        // }}
       />
       {schoolsLatLon !== null &&
         schoolsLatLon.map(school => {
@@ -72,15 +72,16 @@ function Map({ latLon, schoolsLatLon }) {
 // adding higer order components
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-export default function InteriorMap({ latLon, schoolsLatLon }) {
+export default function InteriorMap({ lat, lon, schoolsLatLon }) {
   return (
     <div
       className="results__modal-map"
-      style={{ width: "30vw", height: "25rem" }}
+      style={{ width: "30vw", height: "27rem" }}
     >
       <WrappedMap
         schoolsLatLon={schoolsLatLon}
-        latLon={latLon}
+        lat={lat}
+        lon={lon}
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&v=3.exp&libraries=geometry,drawing,places`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100%`, width: "100%" }} />}

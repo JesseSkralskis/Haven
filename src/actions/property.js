@@ -1,12 +1,10 @@
-import { attomZip } from "../utilities/atom";
-import { test } from "../utilities/atom";
-
-export const addPropertys = zip => ({
-  type: "GET_ZIP",
-  results: attomZip(zip)
+export const setIds = (propId, listId, propStatus, lat, lon) => ({
+  type: "SET_IDS",
+  propId,
+  listId,
+  propStatus,
+  lat,
+  lon
 });
 
-export const tester = number => ({
-  type: "TEST",
-  number
-});
+

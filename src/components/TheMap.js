@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import uuid from "uuid";
 import mapStyle from "../styles/mapStyles/lightDark";
+import { setIds } from "../actions/property";
 import {
   GoogleMap,
   withScriptjs,
@@ -9,11 +10,19 @@ import {
   InfoWindow
 } from "react-google-maps";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-function Map({ data, cordinates }) {
+function Map({ data, cordinates, setIds, history }) {
   const [selectedProperty, setSelectedProperty] = useState(null);
-  const handleClick = prop => {
-    console.log(prop);
+  const handleClick = () => {
+    console.log(history);
+    setIds(
+      selectedProperty.propId,
+      selectedProperty.listId,
+      selectedProperty.propStatus,
+      selectedProperty.lat,
+      selectedProperty.lon
+    );
   };
 
   return (
@@ -49,8 +58,8 @@ function Map({ data, cordinates }) {
         >
           <Link
             style={{ textDecoration: "none" }}
-            to="/"
-            onClick={() => handleClick(selectedProperty)}
+            onClick={() => handleClick()}
+            to={"/details"}
           >
             <div className="map__info-window">
               <img
@@ -74,10 +83,12 @@ function Map({ data, cordinates }) {
 // adding higer order components
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-export default function TheMap({ locationData, cordinates }) {
+export function TheMap({ locationData, cordinates, setIds, history }) {
   return (
     <div style={{ width: "50vw", height: "50vw" }}>
       <WrappedMap
+        history={history}
+        setIds={setIds}
         cordinates={cordinates}
         data={locationData}
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&v=3.exp&libraries=geometry,drawing,places`}
@@ -88,3 +99,10 @@ export default function TheMap({ locationData, cordinates }) {
     </div>
   );
 }
+
+const mapDispatchtoProps = dispatch => ({
+  setIds: (propId, listId, propStatus, lat, lon) =>
+    dispatch(setIds(propId, listId, propStatus, lat, lon))
+});
+
+export default connect(undefined, mapDispatchtoProps)(TheMap);

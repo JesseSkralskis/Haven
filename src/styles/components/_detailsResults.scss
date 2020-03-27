@@ -1,0 +1,9 @@
+.detailsResults-container {
+  display: grid;
+  grid-template-columns: [info] 30vw [photo] 70vw;
+  grid-template-rows: [body] auto;
+  overflow-x: hidden;
+
+  height: 100vh;
+  overflow-y: hidden;
+}

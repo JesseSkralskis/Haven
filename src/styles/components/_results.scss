@@ -1,12 +1,12 @@
 .results__card {
   width: 99%;
-  border: #061951 solid 1px;
+
   color: black;
   min-height: 280px;
 }
 
 .results__photo-container {
-  width: 100%;
+  // width: 100%;
 }
 
 .results__background-photo {
@@ -16,139 +16,22 @@
   background-position: center;
 }
 
-//modal
+//
 
-.results__modal {
-  background: transparent;
-}
+// .results__modal-belowButtons {
+//   grid-row: menuResults;
+//   grid-column: fullWidth;
+//   margin-top: 2rem;
+//   display: grid;
 
-.results__modal-container {
-  border: 2px solid #061951;
-
-  display: grid;
-  grid-template-columns: [info] 30vw [photo] 70vw [end];
-  grid-template-rows: [body] auto [end];
-
-  height: 100vh;
-  background: white;
-}
-//photos
-.results__modal-photos-wrapper {
-  border: 1px solid darkblue;
-  grid-column: photo;
-  grid-row: body;
-  overflow-y: scroll;
-  width: 70vw;
-  display: grid;
-
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-template-rows: auto;
-}
-
-.results__modal-photo-wrapper {
-  height: 307px;
-
-  margin-left: 1rem;
-  margin-top: 1rem;
-  background-size: contain;
-}
-//details
-
-.results__modal-details_container {
-  width: 30vw;
-
-  // padding: 0 2px; /* Increase/decrease this value for cross-browser compatibility */
-  // box-sizing: content-box; /* So the width will be 100% + 17px */
-
-  grid-column: info;
-  grid-row: body/end;
-  display: grid;
-  grid-template-rows: [title] 8rem [sub] 10rem [menu] 4rem [menuResults] 20rem [menuResultsMap]28rem[headBody] auto [end];
-  grid-template-columns: [fullWidth] auto [end];
-
-  overflow-y: scroll;
-}
-.results__modal-details-title {
-  grid-row: title;
-  grid-column: fullWidth;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #c5cfdc;
-  border-bottom: 1px lightgray solid;
-  h3 {
-    font-size: 600%;
-    font-family: "Cormorant Garamond", serif;
-    color: #061951;
-  }
-}
-.results__modal-details-sub {
-  margin-top: 1rem;
-  // border: orange solid 2px;
-  grid-row: sub;
-  grid-column: fullWidth;
-
-  .price {
-    font-size: 150%;
-    display: inline-block;
-    margin-right: 3rem;
-    margin-left: 1rem;
-  }
-  .num {
-    font-size: 115%;
-    font-weight: 300;
-  }
-  .break {
-    font-size: 175%;
-    color: lightgray;
-    font-weight: 250;
-  }
-  .abr {
-    font-size: 100%;
-  }
-}
-
-.results__modal-details-spans {
-  h3 span {
-    font-size: 300%;
-  }
-}
-
-.results__modal-hr {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.results-modal-address {
-  margin-left: 1rem;
-  margin-top: 1rem;
-
-  line-height: 1.2;
-  font-weight: 300;
-}
-
-.results__modal-menu {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-right: 15px;
-  margin: 10px 0;
-}
-
-.results__modal-belowButtons {
-  grid-row: menuResults;
-  grid-column: fullWidth;
-  margin-top: 2rem;
-  display: grid;
-
-  overflow-y: scroll;
-  h4 {
-    line-height: 1.5;
-    font-weight: 450;
-    width: 90%;
-    margin: 0 auto;
-  }
-}
+//   overflow-y: scroll;
+//   h4 {
+//     line-height: 1.5;
+//     font-weight: 450;
+//     width: 90%;
+//     margin: 0 auto;
+//   }
+// }
 .results__modal-realtor {
   display: grid;
 
@@ -169,11 +52,6 @@
   grid-column: firstHalf;
 }
 
-.results__modal-map {
-  grid-row: menuResultsMap;
-  grid-column: fullWidth;
-}
-
 .results__neighborhood-buttons-wrapper {
   display: inline-flex;
 
@@ -184,6 +62,7 @@
 
 .results__neighborhood-info-box {
   height: 15rem;
+  border: solid 1px green;
 }
 .results__neighborhood-container {
 }

@@ -1,0 +1,9 @@
+.resmap__container{
+    height: 100%;
+  width: 100vw;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: [map] 50vw [houses] 50vw [end];
+  grid-template-rows: [container] auto;
+}

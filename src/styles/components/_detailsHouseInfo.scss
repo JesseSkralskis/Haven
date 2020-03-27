@@ -1,0 +1,37 @@
+.details__house-info-container {
+  margin-top: 1rem;
+  // border: orange solid 2px;
+  grid-row: sub;
+  grid-column: fullWidth;
+  .price {
+    font-size: 150%;
+    display: inline-block;
+    margin-right: 3rem;
+    margin-left: 1rem;
+  }
+  .num {
+    font-size: 115%;
+    font-weight: 300;
+  }
+  .break {
+    font-size: 175%;
+    color: lightgray;
+    font-weight: 250;
+  }
+  .abr {
+    font-size: 100%;
+  }
+}
+.details__house-info-spans {
+  h3 span {
+    font-size: 300%;
+  }
+}
+
+.details__house-info-address {
+  margin-left: 1rem;
+  margin-top: 1rem;
+
+  line-height: 1.2;
+  font-weight: 300;
+}
