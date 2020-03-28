@@ -50,7 +50,7 @@ export const detailsSearch = async (propId, listId, propStatus) => {
       yearBuilt: res.listing.year_built,
       listingAgent: res.listing.agent ? res.listing.agent.name : "no realtor",
       email: res.listing.agent ? res.listing.agent.email : "",
-      phoneNumber: res.listing.agent ? res.listing.agent.phone1.number : "",
+      phoneNumber: res.listing.agent && res.listing.agent.phone ? res.listing.agent.phone1.number : "",
       photoCentered:
         res.listing.agent && res.listing.agent.photo
           ? res.listing.agent.photo.href
@@ -98,3 +98,13 @@ export const schoolSearch = async (lat, lon) => {
     console.log(err);
   }
 };
+
+export const fetchSexOffenders = async (zip) => {
+  const response = await fetch(
+    `https://completecriminalchecks.com/api/json/?apikey=6s4122z013xlvtphrnuge19&search=radius&miles=5&center=${zip}`
+  );
+
+  const json = await response.json();
+  return json;
+  
+}

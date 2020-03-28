@@ -1,14 +1,75 @@
-.details__menuResults-container{
-    grid-row: menuResults;
+.details__menuResults-container {
+  grid-row: menuResults;
   grid-column: fullWidth;
   margin-top: 2rem;
   display: grid;
 
   overflow-y: scroll;
   h4 {
-    line-height: 1.5;
+    line-height: 1.75;
     font-weight: 450;
     width: 90%;
     margin: 0 auto;
   }
+}
+//realtor
+.details__menuResults-realtor-container {
+  display: grid;
+
+  grid-template-rows: [margin] 10% [body] auto [endMargin] 10% [end];
+  grid-template-columns: [leftMargin] 10% [firstHalf] 40% [secondHalf] 40% [rightMargin] 10%;
+}
+
+.details__menuResults-realtor-details {
+  grid-row: body;
+  grid-column: secondHalf;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.details__menuResults-realtorPhoto {
+  grid-row: margin/end;
+  grid-column: firstHalf;
+}
+
+//financial
+.details__menuResults-financialContainer {
+  margin-left: 1rem;
+  h5 {
+    font-weight: 600;
+    span {
+      font-weight: 400;
+    }
+  }
+}
+
+//neighborhood
+
+.details__menuResults-hood-container {
+}
+
+.details__menuResults-hood-buttonWrapper {
+  display: inline-flex;
+
+  height: 2.5rem;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.details__menuResults-hood-infoBox {
+  height: 15rem;
+}
+.details__menuResults-hood-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h4 {
+    font-weight: 250;
+    width: 20rem;
+  }
+}
+.details__menuResults-school-container {
 }

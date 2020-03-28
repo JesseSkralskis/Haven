@@ -31,10 +31,10 @@ function Map({ lat, lon, schoolsLatLon }) {
           lng: lon
         }}
         // onMouseOver={() => setSelectedProperty(property)}
-        // icon={{
-        //   url: "images/iconHouse.png",
-        //   scaledSize: new window.google.maps.Size(83, 45)
-        // }}
+        icon={{
+          url: "images/iconHouse.png",
+          scaledSize: new window.google.maps.Size(85, 50)
+        }}
       />
       {schoolsLatLon !== null &&
         schoolsLatLon.map(school => {

@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
+import { history } from "../routes/AppRouter";
 
 const Header = ({ startLogout }) => {
   const handleClick = () => {
-    window.location.reload(false);
+    history.push("/");
   };
 
   return (
@@ -15,7 +16,7 @@ const Header = ({ startLogout }) => {
       {" "}
       <div className="header__wrapper">
         <Link
-          onClick={handleClick}
+          onClick={()=>handleClick()}
           target="_self"
           style={{ textDecoration: "none" }}
           className="header__link"

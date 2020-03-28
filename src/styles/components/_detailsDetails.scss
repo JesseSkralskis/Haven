@@ -15,7 +15,7 @@
   grid-row: title;
   grid-column: fullWidth;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: #c5cfdc;
   border-bottom: 1px lightgray solid;
@@ -29,4 +29,15 @@
 .details__details-map {
   grid-row: menuResultsMap;
   grid-column: fullWidth;
+}
+
+.detail__detail-button {
+  height: 100%;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  button {
+    font-size: 200%;
+    width: 4rem;
+    border: none;
+  }
 }
