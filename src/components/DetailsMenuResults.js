@@ -1,5 +1,5 @@
 import React from "react";
-import SexOffenders from './SexOffenders';
+import SexOffenders from "./SexOffenders";
 
 export default function DetailsMenuResults({
   menu,
@@ -103,28 +103,38 @@ export default function DetailsMenuResults({
             >
               Schools
             </button>
-            <button onClick={()=> setHood('sex')} className="buttons buttons--logout">Sex Offenders</button>
-            <button className="buttons buttons--logout">Crime</button>
+            <button
+              onClick={() => setHood("sex")}
+              className="buttons buttons--logout"
+            >
+              Sex Offenders
+            </button>
           </div>
-          <div className="details__menuResults-hood-infoBox">
-            {hood === "none" && (
-              <div className="details__menuResults-hood-empty">
-                <h4>Click a button for Information</h4>
-              </div>
-            )}
-            {hood === "schools" && (
-              <div className="details__menuResults-school-container">
-                {schools.schools.length > 0 &&
-                  schools.schools.map(school => (
-                    <h6 key={school.name}>{school.name} </h6>
-                  ))}
-              </div>
-              
-            )}
+          <hr />
+          <div className="details__menuResults-hood-infobox-wrapper">
+            <div className="details__menuResults-hood-infoBox">
+              {hood === "none" && (
+                <div className="details__menuResults-hood-empty">
+                  <h4>Click a button for Information</h4>
+                </div>
+              )}
+              {hood === "schools" && (
+                <div className="details__menuResults-school-container">
+                  {schools.schools.length > 0 &&
+                    schools.schools.map(school => (
+                      <div>
+                        <h6 key={school.name}>
+                          {school.name} <span className='details__MenuResults-schools-span'>{school.phone}</span>{" "}
+                        </h6>
+                      </div>
+                    ))}
+                </div>
+              )}
+              {hood === "sex" && <SexOffenders zip={details.zip} />}
+            </div>
           </div>
         </div>
       )}
-      {hood==='sex'&& <SexOffenders/>}
     </div>
   );
 }

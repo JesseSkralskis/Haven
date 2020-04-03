@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { ReactQueryDevtools } from "react-query-devtools";
 import { useQuery } from "react-query";
-import { HTML5_FMT } from "moment";
+import { connect } from "react-redux";
+import { setOffenders } from "../actions/offenders";
+import loadingPage from "./LoadingPage";
+import uuid from "uuid";
+import LoadingPage from "./LoadingPage";
+
 // import { fetchSexOffenders } from "../utilities/apiCalls";
 
-export default function SexOffenders() {
+function SexOffenders({ zip, setOffenders }) {
   return (
     <div>
-      <ReactQueryDevtools />
-      <Offenders />
+      {/* <ReactQueryDevtools /> */}
+      <Offenders setOffenders={setOffenders} zip={zip} />
     </div>
   );
 }
-const fetchSexOffenders = async zip => {
+const fetchSexOffenders = async theZip => {
   const response = await fetch(
-    `https://completecriminalchecks.com/api/json/?apikey=6s4122z013xlvtphrnuge19&search=radius&miles=5&center=${zip}`,
+    `https://completecriminalchecks.com/api/json/?apikey=6s4122z013xlvtphrnuge19&search=radius&miles=5&center=${theZip}`,
     {
       method: "GET",
       headers: {
@@ -26,29 +31,50 @@ const fetchSexOffenders = async zip => {
 
   const json = await response.json();
   return json.person.map(person => ({
+    sex: person.sex,
+    dob: person.dob,
+    address: person.address,
+    work: person.work,
+    height: person.height,
+    weight: person.weight,
+    eyes: person.eyes,
     id: person.id,
     name: person.full_name,
     crime: person.crime,
     lat: person.latitude,
     lng: person.longitude,
-    photo: person.image ? person.image : "no image"
+    photo: person.image
+      ? person.image
+      : "https://www.achievesuccesstutoring.com/wp-content/uploads/2019/05/no-photo-icon-22.jpg-300x300.png"
   }));
 };
 
-const Offenders = () => {
-  const zip = "90221";
-  const { status, error, data } = useQuery(zip, fetchSexOffenders);
-  if (status === "loading") return <div>...loading</div>;
-  if (status === "error") return <div>there has been an error</div>;
-
-  return (
-    <div>
-      {data.map(person => (
-        <div>
-          <h5>{person.name}</h5>
-          <h6>{person.crime}</h6>
+const Offenders = ({ zip, setOffenders }) => {
+  const theZip = zip;
+  const { status, error, data } = useQuery(theZip, fetchSexOffenders);
+  if (status === "loading")
+    return (
+      <div className="offenders__loading-container">
+        <div className="offenders__loading-wrapper">
+          <LoadingPage />
         </div>
-      ))}
+      </div>
+    );
+  if (status === "error") return <div className='offenders__errror'>there has been an error</div>;
+  setOffenders(data);
+  return (
+    <div className="offenders__container">
+      <h2>
+        there are {data.length} Offenders within a 5 mile radius of this
+        property. Please check the Map for handcuff icons to get more
+        information.
+      </h2>
     </div>
   );
 };
+
+const mapDispatchToProps = dispatch => ({
+  setOffenders: (lat, lon) => dispatch(setOffenders(lat, lon))
+});
+
+export default connect(undefined, mapDispatchToProps)(SexOffenders);

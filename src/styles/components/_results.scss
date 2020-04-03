@@ -3,6 +3,25 @@
 
   color: black;
   min-height: 280px;
+  border: #061951 1.15px solid;
+  .price {
+    font-size: 100%;
+    display: inline-block;
+    margin-right: 3rem;
+    margin-left: 1rem;
+  }
+  .num {
+    font-size: 90%;
+    font-weight: 300;
+  }
+  .break {
+    font-size: 130%;
+    color: lightgray;
+    font-weight: 250;
+  }
+  .abr {
+    font-size: 80%;
+  }
 }
 
 .results__photo-container {

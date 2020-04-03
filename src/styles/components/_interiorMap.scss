@@ -1,0 +1,64 @@
+//school infowindow
+.interiorMap__schools-container {
+  border: #061951 solid 1.15px;
+  padding: 1rem;
+  text-align: center;
+  color: #061951;
+  background: #ebf2fa;
+
+  h4 {
+    color: darkblue;
+  }
+}
+// offender infowindow
+.interiorMap__offender-container {
+  text-align: center;
+  padding: 1rem;
+  background: #ebf2fa;
+  h4 {
+    font-size: 80%;
+    font-weight: 250;
+    color: #061951;
+  }
+  h5 {
+    font-size: 70%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: #061951;
+    font-weight: 400;
+  }
+  h3 {
+    font-size: 80%;
+    font-weight: 300;
+    color: #061951;
+  }
+  img {
+    height: 100px;
+  }
+}
+
+.interiorMap__offender-name-dob {
+  font-size: 100%;
+}
+#interiorMap__offender-break {
+  color: lightgray;
+  font-size: 150%;
+}
+
+#interiorMap__offender-dob {
+  font-weight: 500;
+}
+
+.interiorMap__offender-height {
+}
+.interiorMap__offender-weight {
+}
+.interiorMap__offender-eyes {
+}
+.interiorMap__offender-crime {
+  font-size: 200%;
+}
+.interiorMap__offender-photo {
+  height: 200px;
+}

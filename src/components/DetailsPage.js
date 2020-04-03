@@ -13,6 +13,8 @@ import DetailsTitle from "./DetailsTitle";
 import DetailsHouseInfo from "./DetailHouseInfo";
 import DetailsMenu from "./DetailsMenu";
 import DetailsMenuResults from "./DetailsMenuResults";
+import { trackPromise } from "react-promise-tracker";
+import LoadingIndicator from "./LoadingIndicator";
 
 export function DetailsPage({
   details,
@@ -21,7 +23,7 @@ export function DetailsPage({
   mpropId,
   mlistId,
   mpropStatus,
-  setIds,
+  offendersData,
   setGlobalDetails
 }) {
   const [hood, setHood] = useState("none");
@@ -33,10 +35,13 @@ export function DetailsPage({
 
   useEffect(() => {
     console.log(mpropId, mlistId, mpropStatus);
-
-    detailsSearch(mpropId, mlistId, mpropStatus).then(res =>
-      setGlobalDetails(res)
-    );
+    if (mpropId) {
+      trackPromise(
+        detailsSearch(mpropId, mlistId, mpropStatus).then(res =>
+          setGlobalDetails(res)
+        )
+      );
+    }
     console.log("componentEffectFired");
   }, []);
 
@@ -55,6 +60,7 @@ export function DetailsPage({
 
   return (
     <div className="detailsResults-container">
+     
       <DetailsPhotos details={details} />
 
       <div className="details__detail-container">
@@ -75,7 +81,8 @@ export function DetailsPage({
             <hr />
           </div>
           <InteriorMap
-            schoolsLatLon={schools.schools.length > 0 ? schools.schools : null}
+            offendersData={offendersData}
+            schools={schools.schools.length > 0 ? schools.schools : null}
             lat={mlat}
             lon={mlon}
           />
@@ -92,7 +99,8 @@ const mapStateToProps = state => ({
   mlistId: state.ids.propId.listId ? state.ids.propId.listId : state.ids.listId,
   mpropStatus: state.ids.propId.propStatus
     ? state.ids.propId.propStatus
-    : state.ids.propStatus
+    : state.ids.propStatus,
+  offendersData: state.offenders.offenders
 });
 
 const mapDispatchToProps = dispatch => ({

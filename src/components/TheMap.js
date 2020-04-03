@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import uuid from "uuid";
 import mapStyle from "../styles/mapStyles/lightDark";
 import { setIds } from "../actions/property";
+import numeral from "numeral";
 import {
   GoogleMap,
   withScriptjs,
@@ -64,14 +65,36 @@ function Map({ data, cordinates, setIds, history }) {
             <div className="map__info-window">
               <img
                 style={{
-                  width: "100px",
-                  height: "50px"
+                  width: "200px",
+                  height: "100px"
                 }}
                 src={selectedProperty.photo}
                 alt="pic"
               />
-              <h4>{selectedProperty.price}</h4>
-              <h6>{selectedProperty.address}</h6>
+              <h3
+                className="selectedProperty
+              __house-info-spans"
+              >
+                <span className="price">
+                  {numeral(selectedProperty.price).format("$0,0")}{" "}
+                </span>{" "}
+                <span className="num">{selectedProperty.beds}</span>{" "}
+                <span className="abr">bds </span>{" "}
+                <span className="break">|</span>{" "}
+                <span className="num">{selectedProperty.baths}</span>{" "}
+                <span className="abr"> ba </span>
+                <span className="break">|</span>{" "}
+                <span className="num">{selectedProperty.sqrft}</span>{" "}
+                <span className="abr">sqft </span>
+              </h3>
+
+              <h4
+                className="selectedProperty__house-info-address"
+              >
+                {selectedProperty.address}
+              </h4>
+              {/* <h4>{selectedProperty.price}</h4>
+              <h6>{selectedProperty.address}</h6> */}
             </div>
           </Link>
         </InfoWindow>

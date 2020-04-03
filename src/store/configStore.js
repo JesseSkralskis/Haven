@@ -1,8 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import detailsSearch from '../reducers/detailsSearch';
+import detailsSearch from "../reducers/detailsSearch";
 import authReducer from "../reducers/auth";
-import firstSearch from '../reducers/firstSearch';
+import firstSearch from "../reducers/firstSearch";
+import offenders from "../reducers/offenders";
 
 import idsReducer from "../reducers/propertys";
 //in order to keep the dev tools we have to config a specific way
@@ -18,7 +19,8 @@ export default () => {
       auth: authReducer,
       ids: idsReducer,
       firstSearch: firstSearch,
-      detailsSearch: detailsSearch
+      detailsSearch: detailsSearch,
+      offenders: offenders
     }),
     composeEnhansers(applyMiddleware(thunk))
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

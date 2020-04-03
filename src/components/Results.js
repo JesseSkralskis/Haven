@@ -4,6 +4,7 @@ import { setGlobalDetails } from "../actions/detailsSearch";
 import Modal from "react-modal";
 import { connect } from "react-redux";
 import { setIds } from "../actions/property";
+import LoadingIndicator from "./LoadingIndicator";
 
 import ResultCard from "./ResultsCard";
 
@@ -25,12 +26,13 @@ function Results({
   type,
   lat,
   lon,
-  setIds
+  setIds,
+  sqftRaw,
+  beds,
+  baths
 }) {
   
 
-  //gets details from api and set localstate with response
-  
   // click from link of property
   const handleClick = (propId, listId, propStatus, lat, lon) => {
     setIds({
@@ -40,7 +42,6 @@ function Results({
       lat,
       lon
     });
-
   };
 
   return (
@@ -52,6 +53,9 @@ function Results({
           style={{ textDecoration: "none" }}
         >
           <ResultCard
+            beds={beds}
+            baths={baths}
+            sqft={sqftRaw}
             photo={photo}
             price={price}
             address={address}

@@ -6,6 +6,8 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
+import { trackPromise } from "react-promise-tracker";
+import LoadingIndicator from "./LoadingIndicator";
 
 const Search = ({ history, firstSearch }) => {
   const [apiData, setApiData] = useState([]);
@@ -17,27 +19,29 @@ const Search = ({ history, firstSearch }) => {
     state: ""
   });
 
+ 
+
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
-const addressSplit = value.split(",");
+    const addressSplit = value.split(",");
     const city = addressSplit[0];
     const stateCode = addressSplit[1];
-const latLng = await getLatLng(results[0]);
+    const latLng = await getLatLng(results[0]);
     setAddress(value);
     setcityState({
       city: city,
       state: stateCode
     });
     setCordinates(latLng);
-    realtorSearch(city, stateCode).then(result => setApiData(result));
+    trackPromise(
+      realtorSearch(city, stateCode).then(result => setApiData(result))
+    );
 
     // history.push("/resmap");
   };
 
   useEffect(() => {
     if (apiData.length > 0) {
-      console.log(apiData);
-      console.log(cordinates);
       firstSearch(apiData, cordinates);
       history.push("resmap");
     }
@@ -51,7 +55,9 @@ const latLng = await getLatLng(results[0]);
     >
       {apiData.length === 0 && (
         <div>
+          <LoadingIndicator />
           <PlacesAutocomplete
+            highlightFirstSuggestion={true}
             value={address}
             onChange={setAddress}
             onSelect={handleSelect}

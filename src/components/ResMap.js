@@ -3,11 +3,14 @@ import Results from "./Results";
 import uuid from "uuid";
 import TheMap from "./TheMap";
 import Header from "./Header";
+
 export default function ResMap({ apiData, cordinates, history }) {
   console.log(apiData);
   console.log(cordinates);
+
   return (
     <div>
+     
       <Header />
       <div className="resmap__container">
         {apiData.length > 0 && (

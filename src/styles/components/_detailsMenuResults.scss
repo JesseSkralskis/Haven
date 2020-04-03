@@ -51,11 +51,13 @@
 }
 
 .details__menuResults-hood-buttonWrapper {
-  display: inline-flex;
+  display: flex;
 
   height: 2.5rem;
   width: 100%;
   justify-content: space-evenly;
+}
+.details__menuResults-hood-infobox-wrapper {
 }
 .details__menuResults-hood-infoBox {
   height: 15rem;
@@ -72,4 +74,17 @@
   }
 }
 .details__menuResults-school-container {
+  margin-top: 1rem;
+  margin-left: 2rem;
+
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+  h6 {
+    font-size: 150%;
+  }
+}
+.details__MenuResults-schools-span {
+  font-weight: 300;
 }

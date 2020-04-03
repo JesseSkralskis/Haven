@@ -14,14 +14,21 @@ import { history } from "./routes/AppRouter";
 import { login, logout } from "./actions/auth";
 import moment from "moment";
 import uuid from "uuid";
+import { usePromiseTracker } from "react-promise-tracker";
+import { directive } from "@babel/types";
 
 const store = configStore();
 
+const ProgressIndicator = () => {
+  const { promiseInProgress } = usePromiseTracker();
+  return <div>{promiseInProgress && <h1>there is a promise pending</h1>}</div>;
+};
 
 const jsx = (
   // by using this now all applications wwill have access to the store
-  <Provider  store={store}>
+  <Provider store={store}>
     <App />
+    <ProgressIndicator />
   </Provider>
 );
 ReactDOM.render(jsx, document.getElementById("root"));

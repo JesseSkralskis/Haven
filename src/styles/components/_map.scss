@@ -1,6 +1,30 @@
 .map__info-window {
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
   text-decoration: none;
   color: black;
+  .price {
+    font-size: 75%;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-left: 0rem;
+  }
+  .num {
+    font-size: 57%;
+    font-weight: 300;
+  }
+  .break {
+    font-size: 87%;
+    color: lightgray;
+    font-weight: 250;
+  }
+  .abr {
+    font-size: 50%;
+  }
+}
+
+.selectedProperty__house-info-address {
+  font-size: 80%;
+  margin-top: 0.5rem;
+  font-weight: 350;
 }
