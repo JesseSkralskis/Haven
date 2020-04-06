@@ -1,16 +1,4 @@
-.details__detail-container {
-  width: 30vw;
-  height: 100vh;
 
-  // padding: 0 2px; /* Increase/decrease this value for cross-browser compatibility */
-  // box-sizing: content-box; /* So the width will be 100% + 17px */
-
-  grid-column: info;
-  grid-row: body/end;
-  display: grid;
-  grid-template-rows: [title] 8rem [sub] 10rem [menu] 4rem [menuResults] 20rem [menuResultsMap]28rem [end];
-  grid-template-columns: [fullWidth] auto [end];
-}
 .details__details-title {
   grid-row: title;
   grid-column: fullWidth;
@@ -29,6 +17,7 @@
 .details__details-map {
   grid-row: menuResultsMap;
   grid-column: fullWidth;
+  margin-top: 1rem;
 }
 
 .detail__detail-button {

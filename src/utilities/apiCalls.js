@@ -18,7 +18,10 @@ export const realtorSearch = async (city, state) => {
       type: listing.prop_type,
       lat: listing.lat,
       lon: listing.lon,
-      photo: listing.photo,
+      photo:
+        listing && listing.photo
+          ? listing.photo
+          : "https://www.achievesuccesstutoring.com/wp-content/uploads/2019/05/no-photo-icon-22.jpg-300x300.png",
       address: listing.address,
       price: listing.price,
       sqftRaw: listing.sqft_raw,
@@ -64,9 +67,9 @@ export const detailsSearch = async (propId, listId, propStatus) => {
           : "no realtor",
       email: res.listing && res.listing.agent ? res.listing.agent.email : "",
       phoneNumber:
-        res.listing && res.listing.agent && res.listing.agent.phone
+        res.listing && res.listing.agent && res.listing.agent.phone1
           ? res.listing.agent.phone1.number
-          : "",
+          : "no number",
       photoCentered:
         res.listing && res.listing.agent && res.listing.agent.photo
           ? res.listing.agent.photo.href

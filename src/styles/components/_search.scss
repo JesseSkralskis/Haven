@@ -11,7 +11,6 @@
 }
 
 .search__input-wrapper {
-  margin-top: 31.3rem;
 }
 .search__input {
   width: 40rem;
@@ -19,6 +18,9 @@
   font-weight: 600;
   font-size: 200%;
   font-family: "Cormorant Garamond", serif;
+  @media (max-width: 425px) {
+    width: 25rem;
+  }
 }
 input::placeholder {
   text-align: left;
@@ -36,29 +38,22 @@ input::placeholder {
   grid-template-rows: [container] auto;
 }
 
-.search__map {
-  grid-column: map;
-  grid-row: container;
-}
-
 .search__scrollbar-removal {
   overflow: hidden;
 
   margin: 0;
   padding: 0;
 }
-.search__results {
-  grid-column: houses/end;
-  grid-row: container;
-  margin-top: 1rem;
-  margin-left: 1rem;
 
-  height: 100vh;
-  width: 50vw;
-  overflow-y: scroll;
-  overflow-x: hidden;
+.search__loadingIndicator-wrapper {
+  margin-top: 7rem;
 
-  display: grid;
-  grid-gap: 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  justify-content: center;
+}
+
+.search__inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }

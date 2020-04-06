@@ -1,9 +1,9 @@
 .results__card {
   width: 99%;
-
+  padding: 1rem;
   color: black;
-  min-height: 280px;
-  border: #061951 1.15px solid;
+  min-height: 300px;
+  border: rgba(97, 116, 164, 0.4) 2px solid;
   .price {
     font-size: 100%;
     display: inline-block;
@@ -25,7 +25,7 @@
 }
 
 .results__photo-container {
-  // width: 100%;
+  
 }
 
 .results__background-photo {
@@ -34,65 +34,3 @@
   background-size: cover;
   background-position: center;
 }
-
-//
-
-// .results__modal-belowButtons {
-//   grid-row: menuResults;
-//   grid-column: fullWidth;
-//   margin-top: 2rem;
-//   display: grid;
-
-//   overflow-y: scroll;
-//   h4 {
-//     line-height: 1.5;
-//     font-weight: 450;
-//     width: 90%;
-//     margin: 0 auto;
-//   }
-// }
-// .results__modal-realtor {
-//   display: grid;
-
-//   grid-template-rows: [margin] 10% [body] auto [endMargin] 10% [end];
-//   grid-template-columns: [leftMargin] 10% [firstHalf] 40% [secondHalf] 40% [rightMargin] 10%;
-// }
-// .results__modal-realtor-details {
-//   grid-row: body;
-//   grid-column: secondHalf;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   align-items: center;
-// }
-
-// .results__modal-realtor-photo {
-//   grid-row: margin/end;
-//   grid-column: firstHalf;
-// }
-
-// .results__neighborhood-buttons-wrapper {
-//   display: inline-flex;
-
-//   height: 2.5rem;
-//   width: 100%;
-//   justify-content: space-evenly;
-// }
-
-// .results__neighborhood-info-box {
-//   height: 15rem;
-// }
-// .results__neighborhood-container {
-// }
-
-// .results__hood-none-container {
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   h4 {
-//     font-weight: 250;
-//     width: 20rem;
-//   }
-// }

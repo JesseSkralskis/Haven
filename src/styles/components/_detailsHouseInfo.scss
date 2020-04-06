@@ -3,28 +3,48 @@
   // border: orange solid 2px;
   grid-row: sub;
   grid-column: fullWidth;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   .price {
     font-size: 150%;
     display: inline-block;
     margin-right: 3rem;
     margin-left: 1rem;
+    grid-column: photo;
+    @media (max-width: 1096px) {
+      font-size: 100%;
+    }
   }
   .num {
     font-size: 115%;
     font-weight: 300;
+    @media (max-width: 1096px) {
+      font-size: 75%;
+    }
   }
   .break {
     font-size: 175%;
     color: lightgray;
     font-weight: 250;
+    @media (max-width: 1096px) {
+      font-size: 120%;
+    }
   }
   .abr {
     font-size: 100%;
+    @media (max-width: 1096px) {
+      font-size: 65%;
+    }
   }
 }
 .details__house-info-spans {
   h3 span {
     font-size: 300%;
+    @media (max-width: 1096px) {
+      font-size: 250%;
+    }
   }
 }
 
@@ -34,4 +54,7 @@
 
   line-height: 1.2;
   font-weight: 300;
+  @media (max-width: 1096px) {
+    font-size: 110%;
+  }
 }

@@ -1,10 +1,9 @@
 .detailsPhotos__wrapper {
-  border: 1px solid darkblue;
   grid-column: photo;
   grid-row: body;
   overflow-y: scroll;
   height: 100vh;
-  // width: 70vw;
+ 
   display: grid;
 
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -13,8 +12,15 @@
 
 .detailPhoto__photo-wrapper {
   height: 307px;
-  width: 485px;
   margin-left: 1rem;
   margin-top: 1rem;
   background-size: cover;
+}
+.detailsPhotos__loading-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.detailPhoto-noPhotos {
+  width: 100vw;
 }

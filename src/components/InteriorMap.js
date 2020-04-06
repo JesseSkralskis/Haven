@@ -122,21 +122,29 @@ function Map({ lat, lon, schools, offendersData }) {
             <h2 className="interiorMap__offender-name-dob">
               {selectedOffender.name}{" "}
               <span id="interiorMap__offender-break">|</span>{" "}
-              <span id="interiorMap__offender-dob">{selectedOffender.dob}</span>{" "}
+              <span id="interiorMap__offender-dob">
+                {selectedOffender.dob.length === 2 ? (
+                  <span>{selectedOffender.dob} years old</span>
+                ) : (
+                  <span>{selectedOffender.dob}</span>
+                )}
+              </span>{" "}
             </h2>
             <h4 classname="interiorMap__offender-address">
               {selectedOffender.address}
             </h4>
             <h3 classname="interiorMap__offender-height">
-              {selectedOffender.height}{" "}
+              {selectedOffender.height.slice(0, 1) +
+                "''" +
+                selectedOffender.height.slice(1, 3)}{" "}
               <span id="interiorMap__offender-break">|</span>{" "}
               <span id="interiorMap__offender-weight">
                 {selectedOffender.weight}
-              </span>
-              <span id="interiorMap__offender-break">|</span>
+              </span>{" "}
+              <span id="interiorMap__offender-break">|</span>{" "}
               <span id="interiorMap__offender-eyes">
                 {selectedOffender.eyes}
-              </span>
+              </span>{" "}
               <span>eys</span>
             </h3>
             <h5 classname="interiorMap__offender-crime">
@@ -160,8 +168,8 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export default function InteriorMap({ lat, lon, schools, offendersData }) {
   return (
     <div
-      className="results__modal-map"
-      style={{ width: "30vw", height: "34rem" }}
+      className="interiorMap-mainWrapper"
+      // style={{ width: "30vw", height: "36rem" }}
     >
       <WrappedMap
         offendersData={offendersData}

@@ -6,4 +6,52 @@
 
   height: 100vh;
   overflow-y: hidden;
+  @media (max-width: 855px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.details__detail-container {
+  width: 30vw;
+  height: 100vh;
+
+  grid-column: info;
+  grid-row: body/end;
+  display: grid;
+  grid-template-rows: [title] 8rem [sub] 10rem [menu] 4rem [menuResults] 20rem [menuResultsMap]28rem [end];
+  grid-template-columns: [fullWidth] auto [end];
+  @media (max-width: 855px) {
+    width: 100%;
+    height: 70vh;
+    overflow-y: scroll;
+  }
+}
+.detailsResults-photoWrapper {
+  overflow-y: scroll;
+  height: 100vh;
+
+  @media (max-width: 855px) {
+    height: 30vh;
+  }
+}
+
+.detailsPhotos__wrapper {
+  grid-column: photo;
+  grid-row: body;
+
+  height: 100vh;
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-rows: auto;
+  @media (max-width: 855px) {
+  }
+}
+
+.interiorMap-mainWrapper {
+  width: 30vw;
+  height: 36rem;
+  @media (max-width: 855px) {
+    width: 100vw;
+  }
 }

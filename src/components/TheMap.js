@@ -84,13 +84,11 @@ function Map({ data, cordinates, setIds, history }) {
                 <span className="num">{selectedProperty.baths}</span>{" "}
                 <span className="abr"> ba </span>
                 <span className="break">|</span>{" "}
-                <span className="num">{selectedProperty.sqrft}</span>{" "}
+                <span className="num">{selectedProperty.sqftRaw}</span>{" "}
                 <span className="abr">sqft </span>
               </h3>
 
-              <h4
-                className="selectedProperty__house-info-address"
-              >
+              <h4 className="selectedProperty__house-info-address">
                 {selectedProperty.address}
               </h4>
               {/* <h4>{selectedProperty.price}</h4>
@@ -108,7 +106,7 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export function TheMap({ locationData, cordinates, setIds, history }) {
   return (
-    <div style={{ width: "50vw", height: "50vw" }}>
+    <div className="theMap__container">
       <WrappedMap
         history={history}
         setIds={setIds}

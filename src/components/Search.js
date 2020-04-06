@@ -19,8 +19,6 @@ const Search = ({ history, firstSearch }) => {
     state: ""
   });
 
- 
-
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
     const addressSplit = value.split(",");
@@ -54,8 +52,11 @@ const Search = ({ history, firstSearch }) => {
       }
     >
       {apiData.length === 0 && (
-        <div>
-          <LoadingIndicator />
+        <div className="search__inner-container">
+          <div className="search__loadingIndicator-wrapper">
+            <LoadingIndicator />
+          </div>
+
           <PlacesAutocomplete
             highlightFirstSuggestion={true}
             value={address}
@@ -96,6 +97,9 @@ const Search = ({ history, firstSearch }) => {
               </div>
             )}
           </PlacesAutocomplete>
+          <div>
+            
+          </div>
         </div>
       )}
     </div>

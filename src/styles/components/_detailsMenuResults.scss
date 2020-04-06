@@ -6,6 +6,7 @@
 
   overflow-y: scroll;
   h4 {
+    font-size: 120%;
     line-height: 1.75;
     font-weight: 450;
     width: 90%;
@@ -56,6 +57,7 @@
   height: 2.5rem;
   width: 100%;
   justify-content: space-evenly;
+  margin-bottom: 1rem;
 }
 .details__menuResults-hood-infobox-wrapper {
 }
@@ -87,4 +89,10 @@
 }
 .details__MenuResults-schools-span {
   font-weight: 300;
+}
+
+.details_menuResults-school-loading {
+  display: flex;
+  justify-content: center;
+  margin-right: 2rem;
 }

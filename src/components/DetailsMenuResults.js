@@ -1,5 +1,7 @@
 import React from "react";
 import SexOffenders from "./SexOffenders";
+import LoadingIndicator from "./LoadingIndicator";
+import DetailsFinancial from "./DetailsFinacial";
 
 export default function DetailsMenuResults({
   menu,
@@ -9,6 +11,8 @@ export default function DetailsMenuResults({
   hood,
   schools
 }) {
+
+  
   return (
     <div className="details__menuResults-container">
       {menu === "overview" && <h4>{details.description}</h4>}
@@ -17,7 +21,8 @@ export default function DetailsMenuResults({
           <div className="details__menuResults-realtor-details">
             <h4>{details.listingAgent}</h4>
             <h4>{details.email}</h4>
-            {details.phoneNumber.indexOf("(") === -1 ? (
+            {details.phoneNumber !== "no number" &&
+            details.phoneNumber.indexOf("(") === -1 ? (
               <h4>
                 {details.phoneNumber.slice(0, 3) +
                   "-" +
@@ -42,57 +47,7 @@ export default function DetailsMenuResults({
         </div>
       )}
       {menu === "financial" && (
-        <div className="details__menuResults-financialContainer">
-          <h5>
-            Estimated Principle Interest:{" "}
-            <span>{numeral(details.principal_interest).format("$0,0")}</span>
-          </h5>
-          <h5>
-            {" "}
-            Estimated Loan Amount:{" "}
-            <span> {numeral(details.loanAmount).format("$0,0")}</span>{" "}
-          </h5>
-          <h5>
-            {" "}
-            Estimated Property Tax:{" "}
-            <span>{numeral(details.monthPropertyTax).format("$0,0")}</span>
-          </h5>
-          <h5>
-            {" "}
-            Estimated Monthly Home Insurance:{" "}
-            <span>{numeral(details.monthlyHomeInsurance).format("$0,0")}</span>
-          </h5>
-          <h5>
-            {" "}
-            Estimated Monthly Mortgage Payment:{" "}
-            <span>{numeral(details.monthlyPayment).format("$0,0")}</span>
-          </h5>
-          <h5>
-            {" "}
-            Estimated Monthly Mortgage Insurance:{" "}
-            <span>
-              {" "}
-              {numeral(details.monthlyMortgageInsurance).format("$0,0")}
-            </span>
-          </h5>
-          <h5>
-            {" "}
-            Estimated Down Payment:{" "}
-            <span>{numeral(details.downPayment).format("$0,0")}</span>
-          </h5>
-          <h5>
-            {" "}
-            How Long Property Been Listed:{" "}
-            <span>{details.listingDateValue}</span>
-          </h5>
-          <h5>
-            Estimated Mortgage Rate:{" "}
-            <span>{numeral(details.rate).format("0%")}</span>
-          </h5>
-          <h5>
-            Estimated Term: <span>{details.term}</span> years
-          </h5>
-        </div>
+        <DetailsFinancial numeral={numeral} details={details} />
       )}
       {menu === "neighborhood" && (
         <div className="details__menuResults-hood-container">
@@ -110,7 +65,7 @@ export default function DetailsMenuResults({
               Sex Offenders
             </button>
           </div>
-          <hr />
+          <hr className="details__menu-hr" />
           <div className="details__menuResults-hood-infobox-wrapper">
             <div className="details__menuResults-hood-infoBox">
               {hood === "none" && (
@@ -120,11 +75,17 @@ export default function DetailsMenuResults({
               )}
               {hood === "schools" && (
                 <div className="details__menuResults-school-container">
+                  <div className="details_menuResults-school-loading">
+                    <LoadingIndicator />
+                  </div>
                   {schools.schools.length > 0 &&
                     schools.schools.map(school => (
                       <div>
                         <h6 key={school.name}>
-                          {school.name} <span className='details__MenuResults-schools-span'>{school.phone}</span>{" "}
+                          {school.name}{" "}
+                          <span className="details__MenuResults-schools-span">
+                            {school.phone}
+                          </span>{" "}
                         </h6>
                       </div>
                     ))}

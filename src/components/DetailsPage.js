@@ -52,16 +52,19 @@ export function DetailsPage({
   //get schools from api and then sets the local state
   useEffect(() => {
     if (hood === "schools") {
-      schoolSearch(mlat, mlon).then(res => {
-        setSchools(res);
-      });
+      trackPromise(
+        schoolSearch(mlat, mlon).then(res => {
+          setSchools(res);
+        })
+      );
     }
   }, [hood, mlat, mlon]);
 
   return (
     <div className="detailsResults-container">
-     
-      <DetailsPhotos details={details} />
+      <div className="detailsResults-photoWrapper">
+        <DetailsPhotos details={details} />
+      </div>
 
       <div className="details__detail-container">
         <DetailsTitle handleRemovePage={handleRemovePage} />
@@ -78,7 +81,7 @@ export function DetailsPage({
 
         <div className="details__details-map">
           <div>
-            <hr />
+            <hr className="details__menu-hr" />
           </div>
           <InteriorMap
             offendersData={offendersData}

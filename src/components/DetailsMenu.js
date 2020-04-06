@@ -30,7 +30,7 @@ export default function DetailsMenu({ setMenu }) {
           neighborhood
         </button>
       </div>
-      <hr className="results__modal-hr" />
+      <hr className="details__menu-hr" />
     </div>
   );
 }

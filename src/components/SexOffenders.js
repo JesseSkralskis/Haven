@@ -19,7 +19,7 @@ function SexOffenders({ zip, setOffenders }) {
 }
 const fetchSexOffenders = async theZip => {
   const response = await fetch(
-    `https://completecriminalchecks.com/api/json/?apikey=6s4122z013xlvtphrnuge19&search=radius&miles=5&center=${theZip}`,
+    `https://completecriminalchecks.com/api/json/?apikey=6s4122z013xlvtphrnuge19&search=radius&miles=2&center=${theZip}`,
     {
       method: "GET",
       headers: {
@@ -51,7 +51,9 @@ const fetchSexOffenders = async theZip => {
 
 const Offenders = ({ zip, setOffenders }) => {
   const theZip = zip;
-  const { status, error, data } = useQuery(theZip, fetchSexOffenders);
+  const { status, error, data } = useQuery(theZip, fetchSexOffenders, {
+    refetchOnWindowFocus: false
+  });
   if (status === "loading")
     return (
       <div className="offenders__loading-container">
@@ -60,12 +62,13 @@ const Offenders = ({ zip, setOffenders }) => {
         </div>
       </div>
     );
-  if (status === "error") return <div className='offenders__errror'>there has been an error</div>;
+  if (status === "error")
+    return <div className="offenders__errror">there has been an error</div>;
   setOffenders(data);
   return (
     <div className="offenders__container">
       <h2>
-        there are {data.length} Offenders within a 5 mile radius of this
+        There are {data.length} Offenders within a 2 mile radius of this
         property. Please check the Map for handcuff icons to get more
         information.
       </h2>
