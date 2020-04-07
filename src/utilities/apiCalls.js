@@ -6,7 +6,7 @@ export const realtorSearch = async (city, state) => {
         method: "GET",
         headers: {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
-          "x-rapidapi-key": "72335bc7bcmsh9cc768e8c93a992p140efbjsnc1630856fdcb"
+          "x-rapidapi-key": `${process.env.REACT_APP_RAPID_API_KEY}`
         }
       }
     );
@@ -42,7 +42,7 @@ export const detailsSearch = async (propId, listId, propStatus) => {
         method: "GET",
         headers: {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
-          "x-rapidapi-key": "72335bc7bcmsh9cc768e8c93a992p140efbjsnc1630856fdcb"
+          "x-rapidapi-key": `${process.env.REACT_APP_RAPID_API_KEY}`
         }
       }
     );
@@ -121,7 +121,7 @@ export const schoolSearch = async (lat, lon) => {
         method: "GET",
         headers: {
           "x-rapidapi-host": "realtor.p.rapidapi.com",
-          "x-rapidapi-key": "72335bc7bcmsh9cc768e8c93a992p140efbjsnc1630856fdcb"
+          "x-rapidapi-key": `${process.env.REACT_APP_RAPID_API_KEY}`
         }
       }
     );
@@ -137,7 +137,7 @@ export const schoolSearch = async (lat, lon) => {
 
 export const fetchSexOffenders = async zip => {
   const response = await fetch(
-    `https://completecriminalchecks.com/api/json/?apikey=6s4122z013xlvtphrnuge19&search=radius&miles=5&center=${zip}`
+    `https://completecriminalchecks.com/api/json/?apikey=${process.env.REACT_APP_OFFENDER_API_KEY}&search=radius&miles=5&center=${zip}`
   );
 
   const json = await response.json();

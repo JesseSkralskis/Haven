@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { setGlobalDetails } from "../actions/detailsSearch";
 import Modal from "react-modal";
 import { connect } from "react-redux";
 import { setIds } from "../actions/property";
-import LoadingIndicator from "./LoadingIndicator";
 
 import ResultCard from "./ResultsCard";
 
@@ -31,8 +30,6 @@ function Results({
   beds,
   baths
 }) {
-  
-
   // click from link of property
   const handleClick = (propId, listId, propStatus, lat, lon) => {
     setIds({

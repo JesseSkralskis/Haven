@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import uuid from "uuid";
-import LoadingPage from "./LoadingPage";
+
 import LoadingIndicator from "./LoadingIndicator";
 
 export default function DetailsPhotos({ details }) {
-  const [error, setError] = useState("");
-  
-
   console.log(details.photos);
   return (
     <div className="detailsPhotos__mainWrapper">
@@ -18,7 +15,7 @@ export default function DetailsPhotos({ details }) {
         {details.photos ===
           "https://www.achievesuccesstutoring.com/wp-content/uploads/2019/05/no-photo-icon-22.jpg-300x300.png" ||
         details.photos === undefined ? (
-          <div className="detailPhoto-noPhotos">{error}</div>
+          <div> </div>
         ) : (
           details.photos.map(photo => (
             <div

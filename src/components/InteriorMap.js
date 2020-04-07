@@ -134,7 +134,7 @@ function Map({ lat, lon, schools, offendersData }) {
               {selectedOffender.address}
             </h4>
             <h3 classname="interiorMap__offender-height">
-              {selectedOffender.height.slice(0, 1) +
+              {selectedOffender.height && selectedOffender.height.slice(0, 1) +
                 "''" +
                 selectedOffender.height.slice(1, 3)}{" "}
               <span id="interiorMap__offender-break">|</span>{" "}

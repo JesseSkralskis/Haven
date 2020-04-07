@@ -3,7 +3,6 @@ import { setIds } from "../actions/property";
 import { setGlobalDetails } from "../actions/detailsSearch";
 import numeral from "numeral";
 import { connect } from "react-redux";
-import uuid from "uuid";
 import InteriorMap from "./InteriorMap";
 import { schoolSearch } from "../utilities/apiCalls";
 import { detailsSearch } from "../utilities/apiCalls";
@@ -14,7 +13,7 @@ import DetailsHouseInfo from "./DetailHouseInfo";
 import DetailsMenu from "./DetailsMenu";
 import DetailsMenuResults from "./DetailsMenuResults";
 import { trackPromise } from "react-promise-tracker";
-import LoadingIndicator from "./LoadingIndicator";
+
 
 export function DetailsPage({
   details,

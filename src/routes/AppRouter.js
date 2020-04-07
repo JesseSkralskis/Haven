@@ -6,16 +6,12 @@ import "../styles/styles.scss";
 
 import NotFoundPage from "../components/NotFoundPage.js";
 import Landing from "../components/Landing";
-import Results from "../components/Results";
 import ResMap from "../components/ResMap";
 import Search from "../components/Search";
 import DetailsPage from "../components/DetailsPage";
 
 //import this to get access to history api anywhere
 import createHistory from "history/createBrowserHistory";
-import PrivateRoute from "./PrivateRoute";
-import PublicRoute from "./PublicRoute";
-
 
 export const history = createHistory();
 //instaed of using browser route3r with history built in

@@ -12,12 +12,7 @@ import LoadingIndicator from "./LoadingIndicator";
 const Search = ({ history, firstSearch }) => {
   const [apiData, setApiData] = useState([]);
   const [address, setAddress] = useState("");
-  const [search, setSearch] = useState("");
   const [cordinates, setCordinates] = useState({ lat: null, lng: null });
-  const [cityState, setcityState] = useState({
-    city: "",
-    state: ""
-  });
 
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
@@ -26,10 +21,6 @@ const Search = ({ history, firstSearch }) => {
     const stateCode = addressSplit[1];
     const latLng = await getLatLng(results[0]);
     setAddress(value);
-    setcityState({
-      city: city,
-      state: stateCode
-    });
     setCordinates(latLng);
     trackPromise(
       realtorSearch(city, stateCode).then(result => setApiData(result))
@@ -97,9 +88,7 @@ const Search = ({ history, firstSearch }) => {
               </div>
             )}
           </PlacesAutocomplete>
-          <div>
-            
-          </div>
+          <div></div>
         </div>
       )}
     </div>

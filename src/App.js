@@ -3,10 +3,6 @@ import AppRouter from "./routes/AppRouter";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-//needed to make the date picker be styled prtoperly
-import "react-dates/lib/css/_datepicker.css";
-import "../src/firebase/firebase";
-
 function App() {
   return (
     <div>

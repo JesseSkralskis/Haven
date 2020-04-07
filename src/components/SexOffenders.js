@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import { ReactQueryDevtools } from "react-query-devtools";
+import React from "react";
+
 import { useQuery } from "react-query";
 import { connect } from "react-redux";
 import { setOffenders } from "../actions/offenders";
-import loadingPage from "./LoadingPage";
-import uuid from "uuid";
 import LoadingPage from "./LoadingPage";
 
 // import { fetchSexOffenders } from "../utilities/apiCalls";

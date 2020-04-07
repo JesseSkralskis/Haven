@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import detailsSearch from "../reducers/detailsSearch";
-import authReducer from "../reducers/auth";
+
 import firstSearch from "../reducers/firstSearch";
 import offenders from "../reducers/offenders";
 
@@ -16,7 +16,6 @@ export default () => {
   //using combine reducers to register reducers
   const store = createStore(
     combineReducers({
-      auth: authReducer,
       ids: idsReducer,
       firstSearch: firstSearch,
       detailsSearch: detailsSearch,
