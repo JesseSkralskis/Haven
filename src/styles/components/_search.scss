@@ -16,7 +16,7 @@
   width: 40rem;
   height: 4rem;
   font-weight: 600;
-  font-size: 200%;
+  font-size: 23px;
   font-family: "Cormorant Garamond", serif;
   @media (max-width: 425px) {
     width: 25rem;
@@ -24,7 +24,7 @@
 }
 input::placeholder {
   text-align: left;
-  font-size: 110%;
+  font-size: 25px;
   font-weight: 200;
 }
 

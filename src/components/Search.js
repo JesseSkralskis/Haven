@@ -76,7 +76,7 @@ const Search = ({ history, firstSearch }) => {
                       backgroundColor: suggestion.active
                         ? "#a6909c"
                         : "#cec4d4",
-                      fontSize: "150%"
+                      fontSize: "15px"
                     };
                     return (
                       <div {...getSuggestionItemProps(suggestion, { style })}>
