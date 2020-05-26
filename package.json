@@ -6,6 +6,7 @@
     "npm": "6.13.4"
   },
   "proxy": "https://completecriminalchecks.com",
+  "proxy": true,
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
