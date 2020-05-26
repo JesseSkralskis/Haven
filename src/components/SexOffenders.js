@@ -18,7 +18,7 @@ function SexOffenders({ zip, setOffenders }) {
 const fetchSexOffenders = async theZip => {
 
   const response = await fetch(
-    `https://completecriminalchecks.com/api/json/?apikey=6s4122z013xlvtphrnuge19&search=radius&miles=2&center=${theZip}`,
+    `/api/json/?apikey=6s4122z013xlvtphrnuge19&search=radius&miles=2&center=${theZip}`,
     {
       method: "GET",
       headers: {
