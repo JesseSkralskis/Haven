@@ -14,16 +14,10 @@ import DetailsPage from "../components/DetailsPage";
 import createHistory from "history/createBrowserHistory";
 
 export const history = createHistory();
-//instaed of using browser route3r with history built in
-//we pass in our custom history
-//now we have the advantage to use history in other files
 
 const AppRouter = ({ firstSearch }) => (
   <Router history={history}>
-    {/* if more than on route must wrap with a div */}
     <div>
-      {/* switch allows us to say if a route has no path match to print the
-      component */}
       <Switch>
         <Route path="/" exact={true} component={Landing} />
         <Route

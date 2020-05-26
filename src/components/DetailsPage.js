@@ -41,7 +41,7 @@ export function DetailsPage({
         )
       );
     }
-    console.log("componentEffectFired");
+   
   }, []);
 
   const handleRemovePage = () => {

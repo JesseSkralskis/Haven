@@ -134,12 +134,3 @@ export const schoolSearch = async (lat, lon) => {
     console.log(err);
   }
 };
-
-export const fetchSexOffenders = async zip => {
-  const response = await fetch(
-    `https://completecriminalchecks.com/api/json/?apikey=${process.env.REACT_APP_OFFENDER_API_KEY}&search=radius&miles=5&center=${zip}`
-  );
-
-  const json = await response.json();
-  return json;
-};
