@@ -2,4 +2,4 @@
 from = "/api/*"
 to = "https://completecriminalchecks.com/:splat"
 status = 200
-force = false
+force = true
