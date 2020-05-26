@@ -51,7 +51,9 @@ const fetchSexOffenders = async theZip => {
 const Offenders = ({ zip, setOffenders }) => {
   const theZip = zip;
   const { status, error, data } = useQuery(theZip, fetchSexOffenders, {
-    refetchOnWindowFocus: false
+    refetchOnWindowFocus: false,
+    
+    
   });
   if (status === "loading")
     return (
