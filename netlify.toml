@@ -1,5 +1,10 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://completecriminalchecks.com/api/:splat"
+  to = "https://completecriminalchecks.com/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
