@@ -46,7 +46,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects ",
+    "build": "react-scripts build && echo '/resmap /details' | cat >build/_redirects ",
     "eject": "react-scripts eject",
     "test": "react-scripts test",
     "server": "nodemon server.js"
