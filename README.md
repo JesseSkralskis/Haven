@@ -4,7 +4,7 @@ My partner and I are looking for property to buy and I noticed all the real esta
 
 Haven is a real estate web application that allows a user to type in a city and get all the resulting properties for sale in the area. These results are sorted on a google map based on their respective latitude and longitude coordinates, as well as a list with all the properties information.
 
-![alt_text](/build/images/Haven.png "image_tooltip")
+![alt_text](/public/images/Haven.png "image_tooltip")
 
 ![alt_text](/public/images/resmap.png "image_tooltip")
 
