@@ -1,4 +1,4 @@
-                                 Haven
+                                                Haven
 
 My partner and I are looking for property to buy and I noticed all the real estate sites have the usual search features, but I found myself wanting to know “how safe is the neighborhood”? I decided to build Haven a real estate site with all the usual features but with the added ability to check for offenders in every neighborhood so before a user buys a property they know if the neighborhood is safe for children.
 
@@ -20,7 +20,7 @@ Now the user can choose from 3 different categories of information: realtor info
 
 ![alt_text](/public/images/iconsOffenders.png "image_tooltip")
 
-![alt_text](/public/images/popupoffenders.png "image_tooltip")
+![alt_text](/public/images/popupOffenders.png "image_tooltip")
 
 **Technology**
 
