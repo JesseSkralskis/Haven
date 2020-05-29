@@ -16,9 +16,8 @@ function SexOffenders({ zip, setOffenders }) {
   );
 }
 const fetchSexOffenders = async theZip => {
-
   const response = await fetch(
-    `/api/json/?apikey=6s4122z013xlvtphrnuge19&search=radius&miles=2&center=${theZip}`,
+    `/api/json/?apikey=12dzey1i891xg0wm25c8&search=radius&miles=2&center=${theZip}`,
     {
       method: "GET",
       headers: {
@@ -51,9 +50,7 @@ const fetchSexOffenders = async theZip => {
 const Offenders = ({ zip, setOffenders }) => {
   const theZip = zip;
   const { status, error, data } = useQuery(theZip, fetchSexOffenders, {
-    refetchOnWindowFocus: false,
-    
-    
+    refetchOnWindowFocus: false
   });
   if (status === "loading")
     return (
