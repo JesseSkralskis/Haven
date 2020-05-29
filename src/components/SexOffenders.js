@@ -17,7 +17,7 @@ function SexOffenders({ zip, setOffenders }) {
 }
 const fetchSexOffenders = async theZip => {
   const response = await fetch(
-    `/api/json/?apikey=12dzey1i891xg0wm25c8&search=radius&miles=2&center=${theZip}`,
+    `/api/json/?apikey=${process.env.REACT_APP_OFFENDER_API_KEY}&search=radius&miles=2&center=${theZip}`,
     {
       method: "GET",
       headers: {
