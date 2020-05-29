@@ -123,7 +123,7 @@ function Map({ lat, lon, schools, offendersData }) {
               {selectedOffender.name}{" "}
               <span id="interiorMap__offender-break">|</span>{" "}
               <span id="interiorMap__offender-dob">
-                {selectedOffender.dob.length === 2 ? (
+                {selectedOffender.dob && selectedOffender.dob.length === 2 ? (
                   <span>{selectedOffender.dob} years old</span>
                 ) : (
                   <span>{selectedOffender.dob}</span>
@@ -134,9 +134,10 @@ function Map({ lat, lon, schools, offendersData }) {
               {selectedOffender.address}
             </h4>
             <h3 classname="interiorMap__offender-height">
-              {selectedOffender.height && selectedOffender.height.slice(0, 1) +
-                "''" +
-                selectedOffender.height.slice(1, 3)}{" "}
+              {selectedOffender.height &&
+                selectedOffender.height.slice(0, 1) +
+                  "''" +
+                  selectedOffender.height.slice(1, 3)}{" "}
               <span id="interiorMap__offender-break">|</span>{" "}
               <span id="interiorMap__offender-weight">
                 {selectedOffender.weight}
